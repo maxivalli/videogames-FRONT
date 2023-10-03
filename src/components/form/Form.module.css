@@ -1,0 +1,79 @@
+.container {
+  display: grid;
+  justify-self: center;
+  align-self: center;
+  margin-top: 210px;
+  width: 650px;
+  height: auto;
+  border-radius: 20px;
+  background-color: rgb(32, 33, 52);
+  border: 2px solid rgb(255, 27, 145);
+  color: rgb(0, 214, 247);
+  box-shadow: 1px 1px 5px blueviolet;
+  text-shadow: 1px 1px 25px rgb(0, 214, 247);
+  transition: 200ms;
+}
+
+.selectedContainer {
+  display: grid;
+}
+
+.selectedContainer ul {
+  padding: 0;
+}
+
+.container form {
+  display: grid;
+  align-content: center;
+  gap: 10px;
+}
+
+.container label {
+  display: grid;
+}
+
+.container select {
+  width: 220px;
+  height: 40px;
+  justify-self: right;
+  padding: 0;
+}
+
+.container input {
+  font-size: 18px;
+  padding-left: 10px;
+  width: 200px;
+  height: 35px;
+  justify-self: right;
+}
+
+.container textarea {
+  width: 320px;
+  height: 100px;
+  border-radius: 10px;
+  justify-self: right;
+  padding-left: 10px;
+}
+
+.container button {
+  background-color: rgba(15, 15, 15, 0.3);
+  border: 2px solid rgb(174, 255, 0);
+  color: aliceblue;
+  box-shadow: 1px 1px 25px rgb(17, 255, 0);
+  text-shadow: 1px 1px 25px aliceblue;
+  justify-self: center;
+  margin-bottom: 20px;
+}
+
+.container button:hover {
+  background-color: rgba(15, 15, 15, 0.3);
+  border-radius: 25px;
+  width: 80px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 350px;
+    margin-top: 330px;
+  }
+}

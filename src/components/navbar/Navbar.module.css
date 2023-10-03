@@ -1,0 +1,86 @@
+.container {
+  display: grid;
+  width: 100%;
+  height: 60px;
+  top: 140px;
+  left: 0;
+  right: 0;
+  grid-template-columns: 0.7fr 1.8fr 2.5fr 1.5fr;
+  background-color: rgb(15, 15, 15);
+  position: fixed;
+  z-index: 999;
+}
+
+.container a {
+  align-self: center;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: left;
+  align-content: center;
+}
+
+.buttons button {
+  background-color: rgba(138, 43, 226, 0.3);
+  border: 2px solid rgb(255, 27, 145);
+  color: rgb(0, 214, 247);
+  box-shadow: 1px 1px 25px blueviolet;
+  text-shadow: 1px 1px 25px rgb(0, 214, 247);
+  justify-self: left;
+}
+
+.buttons button:hover {
+  background-color: rgba(138, 43, 226, 0.3);
+  border-radius: 25px;
+  width: 80px;
+}
+
+.create {
+  justify-self: left;
+  margin-left: 40px;
+  background-color: rgba(15, 15, 15, 0.3);
+  border: 2px solid rgb(174, 255, 0);
+  color: aliceblue;
+  box-shadow: 1px 1px 25px rgb(17, 255, 0);
+  text-shadow: 1px 1px 25px aliceblue;
+}
+
+.create:hover {
+  background-color: rgba(15, 15, 15, 0.3);
+  border-radius: 25px;
+  width: 80px;
+}
+
+.buttons .logout {
+  background-color: rgba(15, 15, 15, 0.3);
+  border: 2px solid rgb(255, 255, 47);
+  color: aliceblue;
+  box-shadow: 1px 1px 25px rgb(0, 214, 247);
+  text-shadow: 1px 1px 10px white;
+  box-shadow: 1px 1px 25px rgb(255, 145, 0);
+}
+
+.buttons .logout:hover {
+  background-color: rgba(15, 15, 15, 0.3);
+}
+
+@media (max-width: 1280px) {
+  .container {
+    width: 100%;
+    height: 220px;
+    margin-top: -50px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 55px 55px 55px 55px;
+    margin-right: 0;
+  }
+
+  .container a {
+    justify-self: center;
+  }
+
+  .create {
+    margin: 0;
+  }
+}

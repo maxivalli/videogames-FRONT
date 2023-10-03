@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+
+:root {
+  font-family: 'Tilt Neon', cursive;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgb(15, 15, 15);
+  background-color: rgb(15,15,15);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: aliceblue;
+  text-shadow: 1px 1px 25px aliceblue
+}
+
+h2 {
+  align-self: center;
+  color: aqua;
+}
+
+h3 {
+  align-self: center;
+  color: aliceblue;
+}
+
+h4 {
+  align-self: center;
+}
+
+h5 {
+  align-self: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  display: grid;
+  justify-self: center;
+  align-self: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-family: 'Tilt Neon', cursive;
+  font-size: 20px;
+  padding-top: 5px;
+  background-color: #263b71;
+  color: aliceblue;
+  cursor: pointer;
+  border: none;
+  transition: 200ms;
+}
+
+button:hover {
+  background-color: #3f4d72;
+}
+
+button:active {
+  animation-name: push; 
+  animation-duration: 300ms; 
+  animation-iteration-count: 1;
+}
+
+input {
+  background-color: rgba(138, 43, 226, 0.3);
+  border: 2px solid rgb(255, 27, 145);
+  color: aliceblue;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 25px;
+  padding-left: 20px;
+  align-self: center;
+  box-shadow: 1px 1px 25px blueviolet;
+  outline: none;
+  justify-self: right;
+}
+
+textarea {
+  background-color: rgba(138, 43, 226, 0.3);
+  border: 2px solid rgb(255, 27, 145);
+  color: aliceblue;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 25px;
+  padding-left: 20px;
+  align-self: center;
+  box-shadow: 1px 1px 25px blueviolet;
+  outline: none;
+  justify-self: right;
+}
+
+select {
+  height: 40px;
+  width: 80%;
+  background-color: rgb(15,15,15);
+  border-radius: 25px;
+  padding-left: 10px;
+  text-shadow: 1px 1px 10px white;
+  box-shadow: 1px 1px 15px orange;
+  border: 2px solid rgb(255, 255, 47);
+  color: aliceblue;
+  align-self: center;
+  justify-self: center;
+  outline: none;
+}
+
+label {
+  color: aliceblue;
+  text-shadow: 1px 1px 10px aliceblue;
+}
+
+ul {
+  list-style-type: none;
+}
+
+span {
+  text-align: center;
+}
+
+@keyframes push {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 0.9;
+  }
+  100% {
+    scale: 1;
+  }
+}
+

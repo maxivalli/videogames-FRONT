@@ -1,0 +1,84 @@
+.container {
+  display: grid;
+  font-family: 'Tilt Neon', cursive;
+  grid-template-rows: 60% 13% 13% 14%;
+  width: 200px;
+  height: 300px;
+  background-color: rgb(32, 33, 52);
+  color: aliceblue;
+  border-radius: 20px;
+  align-content: center;
+  border: 3px solid rgb(0, 214, 247);
+  box-shadow: 1px 1px 15px rgb(0, 214, 247);
+  transition: 200ms;
+}
+
+.container:hover {
+  transform: scale(103%);
+}
+
+h4 {
+  display: grid;
+  position: absolute;
+  width: 28px;
+  height: 23px;
+  font-size: 12px;
+  padding-top: 5px;
+  margin-top: -235px;
+  margin-left: 160px;
+  background-color: rgb(15,15,15);
+  border-radius: 50%;
+  border: 2px solid rgb(255, 27, 145);
+  text-shadow: 1px 1px 5px aliceblue;
+  box-shadow: 1px 1px 10px rgb(255, 27, 145);
+}
+
+.img {
+  display: grid;
+}
+
+.img img {
+  width: 200px;
+  height: 180px;
+  border-radius: 17px 17px 0px 0px;
+}
+
+.name {
+  font-size: 16px;
+  width: 90%;
+  margin-left: 5%;
+  color: aqua;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.buttons {
+  display: grid;
+}
+
+.buttons a {
+  justify-self: center;
+  align-self: center;
+}
+
+.buttons button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 12px;
+  background-color: rgba(138, 43, 226, 0.3);
+  border: 2px solid rgb(255, 27, 145);
+  color: rgb(0, 214, 247);
+  box-shadow: 1px 1px 5px blueviolet;
+  text-shadow: 1px 1px 25px rgb(0, 214, 247);
+  transition: 200ms;
+}
+
+.buttons button:hover {
+    width: 48px;
+    height: 28px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 25px blueviolet;
+    background-color: rgba(138, 43, 226, 0.3);
+}
