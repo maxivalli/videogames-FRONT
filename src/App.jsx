@@ -11,7 +11,7 @@ import "./App.css"; // Importamos estilos CSS
 
 // Configuramos la URL base para las solicitudes HTTP con Axios
 /* axios.defaults.baseURL = 'http://localhost:3001'; */
-axios.defaults.baseURL = 'videogames-server-production.up.railway.app';
+axios.defaults.baseURL = 'https://videogames-server-production.up.railway.app';
 
 function App() {
   return (
