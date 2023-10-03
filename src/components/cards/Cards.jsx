@@ -4,6 +4,7 @@ import { Pagination } from "../pagination/Pagination";
 import { useState, useEffect } from "react";
 import { getVideogames } from "../../redux/actions";
 import { Card } from "../card/Card";
+import Gif from "../../assets/gif.gif"
 import style from "./Cards.module.css";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -58,7 +59,7 @@ export const Cards = () => {
     if (hasTimedOut) {
       return <h2>Error al obtener los datos</h2>; // Se muestra si ha habido un tiempo de espera.
     } else {
-      return <h2>Loading...</h2>; // Se muestra durante la carga de datos.
+      return <img src={Gif} className={style.gif}></img>; // Se muestra durante la carga de datos.
     }
   }
 
