@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getGenres, postVideogame } from "../../redux/actions";
 import { validate } from "./validate";
+import {Modal} from "../modal/Modal";
 import style from "./Form.module.css";
 
 export const Form = () => {
@@ -31,6 +32,10 @@ export const Form = () => {
     description: "",
     form: "",
   });
+
+   // Estado para controlar la visibilidad del modal
+   const [isModalOpen, setIsModalOpen] = useState(false);
+   const [modalMessage, setModalMessage] = useState("");
 
   // Obtener los géneros cuando el componente se monta
   useEffect(() => {
@@ -121,7 +126,8 @@ export const Form = () => {
         if (hasNoErrors) {
           // Continuar con el envío del formulario si no hay errores
           dispatch(postVideogame(form));
-          alert("Videogame Created!");
+          setModalMessage("Videogame Created!");
+          setIsModalOpen(true);
 
           // Restablecer el formulario después de enviarlo con éxito
           setForm({
@@ -142,6 +148,10 @@ export const Form = () => {
           form: "Hubo un error al crear el videojuego. Por favor, intenta nuevamente.",
         });
       });
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -251,6 +261,9 @@ export const Form = () => {
           Create
         </button>
         {errors.form && <span>{errors.form}</span>}
+        {isModalOpen && (
+          <Modal message={modalMessage} onClose={closeModal} />
+        )}
       </form>
     </div>
   );
