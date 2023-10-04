@@ -57,7 +57,7 @@ export const Cards = () => {
   // Renderizamos diferentes elementos según el estado de los datos.
   if (!allVideogames || allVideogames.length === 0) {
     if (hasTimedOut) {
-      return <h2>Error al obtener los datos</h2>; // Se muestra si ha habido un tiempo de espera.
+      return <h2>No se pudieron obtener datos</h2>; // Se muestra si ha habido un tiempo de espera.
     } else {
       return <img src={Gif} className={style.gif}></img>; // Se muestra durante la carga de datos.
     }
