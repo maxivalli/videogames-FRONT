@@ -22,7 +22,7 @@
 
 @media (max-width: 768px) {
   .container {
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2.5fr 1fr;
     width: 100%;
   }
 

@@ -38,9 +38,13 @@ export const Cards = () => {
   };
 
   // Efecto secundario para obtener los datos de los videojuegos al cargar el componente.
-  useEffect(() => {
+useEffect(() => {
+  // Verifica si ya tienes datos en el estado antes de hacer la solicitud de nuevo.
+  if (!allVideogames || allVideogames.length === 0) {
     dispatch(getVideogames()); // Despachamos la acción para obtener los datos.
-  }, [dispatch]);
+  }
+}, [dispatch, allVideogames]); // Agrega allVideogames como dependencia.
+
 
   // Efecto secundario para gestionar el tiempo de espera si no se obtienen datos.
   useEffect(() => {

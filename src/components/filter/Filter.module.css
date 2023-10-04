@@ -1,7 +1,15 @@
 .container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
     justify-content: space-around;
+}
+
+.container button {
+    background-color: rgb(15, 15, 15);
+    border: 2px solid rgb(255, 255, 47);
+    box-shadow: 1px 1px 10px orange;
+    font-size: 22px;
+    margin-left: 5px;
 }
 
 @media (max-width: 768px) {
