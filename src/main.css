@@ -103,6 +103,7 @@ textarea {
 select {
   height: 40px;
   width: 80%;
+  font-size: 12px;
   background-color: rgb(15,15,15);
   border-radius: 25px;
   padding-left: 10px;
