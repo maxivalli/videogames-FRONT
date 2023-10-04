@@ -6,6 +6,7 @@ const URL = "/videogames";
 // Definimos constantes para las acciones (action types)
 export const GET_VIDEOGAMES = "GET_VIDEOGAMES";
 export const GET_VIDEOGAME = "GET_VIDEOGAME";
+export const CLEAR_VIDEOGAME = "CLEAR_VIDEOGAME"
 export const GET_VIDEOGAMES_BY_NAME = "GET_VIDEOGAMES_BY_NAME";
 export const GET_GENRES = "GET_GENRES";
 export const POST_VIDEOGAME = "POST_VIDEOGAME";
@@ -36,6 +37,11 @@ export const getVideogame = (id) => {
       console.log(error);
     }
   };
+};
+
+// Acción para limpiar el estado del detalle del videojuego
+export const clearVideogameDetail = () => {
+  return {type: CLEAR_VIDEOGAME};
 };
 
 // Acción para obtener videojuegos por nombre

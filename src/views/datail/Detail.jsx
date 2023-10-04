@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getVideogame } from "../../redux/actions"; // Importamos la acción para obtener detalles de videojuegos
+import { getVideogame, clearVideogameDetail } from "../../redux/actions"; // Importamos la acción para obtener detalles de videojuegos
 import { Navbar } from "../../components/navbar/Navbar"; // Importamos el componente Navbar
 import style from "./Detail.module.css";
 import { useParams } from "react-router-dom"; // Importamos useParams para obtener el parámetro de la URL
@@ -13,6 +13,10 @@ export const Detail = () => {
   useEffect(() => {
     // Utilizamos useEffect para disparar la acción de obtener detalles de videojuegos cuando el componente se monta o cuando el "id" cambia
     dispatch(getVideogame(id));
+    return () => {
+      // Función de limpieza: se ejecuta cuando el componente se desmonta
+      dispatch(clearVideogameDetail());
+    };
   }, [dispatch, id]);
 
   const videogame = useSelector((state) => state.detail); // Obtenemos el estado del detalle del videojuego desde Redux

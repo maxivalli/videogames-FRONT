@@ -1,6 +1,7 @@
 import {
   GET_VIDEOGAMES,
   GET_VIDEOGAME,
+  CLEAR_VIDEOGAME,
   GET_VIDEOGAMES_BY_NAME,
   GET_GENRES,
   POST_VIDEOGAME,
@@ -26,6 +27,10 @@ const rootReducer = (state = initialState, action) => {
     case GET_VIDEOGAME:
       // Actualizamos el estado con los detalles de un videojuego
       return { ...state, detail: action.payload };
+
+    case CLEAR_VIDEOGAME:
+      //Limpia el estado con los detalles del videojuego
+      return {...state, detail: null};
 
     case GET_VIDEOGAMES_BY_NAME:
       // Actualizamos el estado con la lista de videojuegos filtrada por nombre
