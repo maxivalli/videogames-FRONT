@@ -77,7 +77,6 @@ export const Form = () => {
 
   //COMPRUEBA SI TODOS LOS CAMPOS ESTAN COMPLETOS Y SIN ERRORES
   const isFormValid = () => {
-    
     return (
       Object.values(errors).every((value) => value === "") &&
       form.name !== "" &&
@@ -109,15 +108,17 @@ export const Form = () => {
 
         if (filteredVideogames.length > 0) {
           // EL VIDEOJUEGO YA EXISTE
-          newErrors.name = "El nombre del videojuego ya existe";
+          newErrors.name = "The name of the videogame already exists";
         }
 
-        if (form.name === "") newErrors.name = "Escribe un nombre";
-        if (form.image === "") newErrors.image = "Inserta un vínculo válido para la imagen";
-        if (form.platforms.length === 0) newErrors.platforms = "Selecciona una plataforma";
-        if (form.released === "") newErrors.released = "Selecciona una fecha";
-        if (form.rating === "") newErrors.rating = "Selecciona un rating";
-        if (form.genres.length === 0) newErrors.genres = "Selecciona un género";
+        if (form.name === "") newErrors.name = "Write a name";
+        if (form.image === "")
+          newErrors.image = "Insert a valid link for the image";
+        if (form.platforms.length === 0)
+          newErrors.platforms = "Select a platform";
+        if (form.released === "") newErrors.released = "Select a date";
+        if (form.rating === "") newErrors.rating = "Select a rating";
+        if (form.genres.length === 0) newErrors.genres = "Select a genre";
 
         // ESTABLECER LOS ERRORES ACTUALIZADOS EN EL ESTADO
         setErrors(newErrors);
@@ -130,7 +131,7 @@ export const Form = () => {
         if (hasNoErrors) {
           // CONTINUAR CON EL ENVÍO DEL FORMULARIO SI NO HAY ERRORES
           dispatch(postVideogame(form));
-          setModalMessage("¡Videojuego creado con éxito!");
+          setModalMessage("Videogame successfully created!");
           setIsModalOpen(true);
 
           // RESTABLECER EL FORMULARIO DESPUÉS DE ENVIARLO CON ÉXITO
@@ -149,7 +150,7 @@ export const Form = () => {
         console.log(error);
         setErrors({
           ...errors,
-          form: "Hubo un error al crear el videojuego. Por favor, intenta nuevamente.",
+          form: "There was an error while creating the videogame. Please try again.",
         });
       });
   };
@@ -163,9 +164,9 @@ export const Form = () => {
     <div className={style.container}>
       <h2>Crear un videojuego</h2>
       <form onSubmit={handleSubmit} className={style.form}>
-        {/* CAMPOS DEL FORMULARIO */}
+        {/* CAMPO PARA INGRESAR EL NOMBRE */}
         <div>
-          <label>Nombre: </label>
+          <label>Name: </label>
           <input
             type="text"
             value={form.name}
@@ -174,9 +175,9 @@ export const Form = () => {
           />
           {errors.name && <div>{errors.name}</div>}
         </div>
-
+        {/* CAMPO PARA INGRESAR LA IMAGEN */}
         <div>
-          <label>Imagen: </label>
+          <label>Image: </label>
           <input
             type="text"
             value={form.image}
@@ -185,7 +186,7 @@ export const Form = () => {
           />
           {errors.image && <div>{errors.image}</div>}
         </div>
-
+        {/* CAMPO PARA INGRESAR LAS PLATAFORMAS */}
         <div>
           <label>Platform:</label>
           <select
@@ -210,9 +211,9 @@ export const Form = () => {
           )}
           {errors.platforms && <div>{errors.platforms}</div>}
         </div>
-
+        {/* CAMPO PARA INGRESAR LA FECHA */}
         <div>
-          <label>Lanzado:</label>
+          <label>Relased:</label>
           <input
             type="date"
             value={form.released}
@@ -221,7 +222,7 @@ export const Form = () => {
           />
           <div>{errors.released && <span>{errors.released}</span>}</div>
         </div>
-
+        {/* CAMPO PARA INGRESAR EL RATING */}
         <div>
           <label>Rating:</label>
           <input
@@ -232,9 +233,9 @@ export const Form = () => {
           />
           <div>{errors.rating && <span>{errors.rating}</span>}</div>
         </div>
-
+        {/* CAMPO PARA INGRESAR EL GENERO */}
         <div>
-          <label>Género:</label>
+          <label>Genre:</label>
           <select onChange={handleSelect} name="genres">
             <option value=""></option>
             {genres.map((genre, index) => (
@@ -252,9 +253,9 @@ export const Form = () => {
           )}
           <div>{errors.genres && <span>{errors.genres}</span>}</div>
         </div>
-
+        {/* CAMPO PARA INGRESAR LA DESCRIPCION */}
         <div>
-          <label>Descripción:</label>
+          <label>Description:</label>
           <textarea
             type="text"
             value={form.description}
@@ -263,19 +264,15 @@ export const Form = () => {
           />
           <div>{errors.description && <span>{errors.description}</span>}</div>
         </div>
-
         {/* BOTÓN DE ENVÍO */}
         {isFormValid() && (
-        <button type="submit" className={style.submit}>
-          Create
-        </button>
-      )}
-
+          <button type="submit" className={style.submit}>
+            Create
+          </button>
+        )}
         {/* MENSAJE DE ERROR GLOBAL Y MODAL */}
         {errors.form && <span>{errors.form}</span>}
-        {isModalOpen && (
-          <Modal message={modalMessage} onClose={closeModal} />
-        )}
+        {isModalOpen && <Modal message={modalMessage} onClose={closeModal} />}
       </form>
     </div>
   );

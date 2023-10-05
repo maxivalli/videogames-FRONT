@@ -54,6 +54,7 @@
   width: 90%;
   justify-self: center;
   text-align: left;
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
@@ -68,5 +69,9 @@
 
   .loading {
     margin-top: 300px;
+  }
+
+  .description {
+    overflow: scroll;
   }
 }

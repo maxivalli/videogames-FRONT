@@ -100,7 +100,7 @@ export const Filter = () => {
           name="Orden"
           value={selectedAlphabeticalOrder}
         >
-          <option value="Random">Orden</option>
+          <option value="Random">Order</option>
           <option value="A">A-Z</option>
           <option value="Z">Z-A</option>
         </select>

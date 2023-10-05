@@ -6,7 +6,7 @@ export const Modal = ({ message, onClose }) => {
     <div className={style.container}>
       <div className={style.message}>
         <p>{message}</p>
-        <button onClick={onClose}>Cerrar</button>
+        <button onClick={onClose}>Close</button>
       </div>
     </div>
   );
