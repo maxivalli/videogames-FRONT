@@ -1,17 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getGenres, postVideogame } from "../../redux/actions";
 import { validate } from "./validate";
-import {Modal} from "../modal/Modal";
+import { Modal } from "../modal/Modal";
 import style from "./Form.module.css";
 
 export const Form = () => {
+  // DISPATCH Y SELECTOR
   const dispatch = useDispatch();
   const genres = useSelector((state) => state.genres);
 
-  // Estado para almacenar el formulario y los errores
+  // ESTADOS DEL FORMULARIO Y ERRORES
   const [form, setForm] = useState({
     name: "",
     image: "",
@@ -33,28 +33,28 @@ export const Form = () => {
     form: "",
   });
 
-   // Estado para controlar la visibilidad del modal
-   const [isModalOpen, setIsModalOpen] = useState(false);
-   const [modalMessage, setModalMessage] = useState("");
+  // ESTADO DEL MODAL
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
 
-  // Obtener los géneros cuando el componente se monta
+  // OBTENER GÉNEROS AL MONTAR EL COMPONENTE
   useEffect(() => {
     dispatch(getGenres());
   }, [dispatch]);
 
-  // Manejador de cambios en los campos del formulario
+  // MANEJADOR DE CAMBIOS EN LOS CAMPOS DEL FORMULARIO
   const changeHandler = (event) => {
     const property = event.target.name;
     const value = event.target.value;
 
-    // Validar el formulario y establecer los errores
+    // VALIDAR EL FORMULARIO Y ESTABLECER LOS ERRORES
     validate({ ...form, [property]: value }, setErrors);
 
-    // Actualizar el estado del formulario con los nuevos valores
+    // ACTUALIZAR EL ESTADO DEL FORMULARIO CON LOS NUEVOS VALORES
     setForm({ ...form, [property]: value });
   };
 
-  // Manejador de selección de opciones (plataformas y géneros)
+  // MANEJADOR DE SELECCIÓN DE OPCIONES (PLATAFORMAS Y GÉNEROS)
   const handleSelect = (event) => {
     const { name, value } = event.target;
 
@@ -75,17 +75,31 @@ export const Form = () => {
     }
   };
 
-  // Manejador de envío del formulario
+  //COMPRUEBA SI TODOS LOS CAMPOS ESTAN COMPLETOS Y SIN ERRORES
+  const isFormValid = () => {
+    
+    return (
+      Object.values(errors).every((value) => value === "") &&
+      form.name !== "" &&
+      form.image !== "" &&
+      form.platforms.length > 0 &&
+      form.released !== "" &&
+      form.rating !== "" &&
+      form.genres.length > 0
+    );
+  };
+
+  // MANEJADOR DE ENVÍO DEL FORMULARIO
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Realizar una solicitud GET para obtener todos los videojuegos
+    // REALIZAR UNA SOLICITUD GET PARA OBTENER TODOS LOS VIDEOJUEGOS
     axios
       .get(`/videogames`)
       .then((response) => {
         const allVideogames = response.data;
 
-        // Filtrar los videojuegos por nombre para verificar duplicados
+        // FILTRAR LOS VIDEOJUEGOS POR NOMBRE PARA VERIFICAR DUPLICADOS
         const filteredVideogames = allVideogames.filter(
           (videogame) =>
             videogame.name.toLowerCase() === form.name.toLowerCase()
@@ -94,42 +108,32 @@ export const Form = () => {
         const newErrors = { ...errors };
 
         if (filteredVideogames.length > 0) {
-          // El videojuego ya existe
-          newErrors.name = "Videogame already exists";
+          // EL VIDEOJUEGO YA EXISTE
+          newErrors.name = "El nombre del videojuego ya existe";
         }
 
-        if (form.name === "")
-          newErrors.name = "Please write your videogame's name";
+        if (form.name === "") newErrors.name = "Escribe un nombre";
+        if (form.image === "") newErrors.image = "Inserta un vínculo válido para la imagen";
+        if (form.platforms.length === 0) newErrors.platforms = "Selecciona una plataforma";
+        if (form.released === "") newErrors.released = "Selecciona una fecha";
+        if (form.rating === "") newErrors.rating = "Selecciona un rating";
+        if (form.genres.length === 0) newErrors.genres = "Selecciona un género";
 
-        if (form.image === "")
-          newErrors.image = "Please write your videogame's name";
-
-        if (form.platforms.length === 0)
-          newErrors.platforms = "Please select a platform";
-
-        if (form.released === "")
-          newErrors.released = "Please select a release date";
-
-        if (form.rating === "") newErrors.rating = "Please rate your game";
-
-        if (form.genres.length === 0)
-          newErrors.genres = "Please select a genre";
-
-        // Establecer los errores actualizados en el estado
+        // ESTABLECER LOS ERRORES ACTUALIZADOS EN EL ESTADO
         setErrors(newErrors);
 
-        // Comprobar si no hay errores
+        // COMPROBAR SI NO HAY ERRORES
         const hasNoErrors = Object.values(newErrors).every(
           (value) => value === ""
         );
 
         if (hasNoErrors) {
-          // Continuar con el envío del formulario si no hay errores
+          // CONTINUAR CON EL ENVÍO DEL FORMULARIO SI NO HAY ERRORES
           dispatch(postVideogame(form));
-          setModalMessage("Videogame Created!");
+          setModalMessage("¡Videojuego creado con éxito!");
           setIsModalOpen(true);
 
-          // Restablecer el formulario después de enviarlo con éxito
+          // RESTABLECER EL FORMULARIO DESPUÉS DE ENVIARLO CON ÉXITO
           setForm({
             name: "",
             image: "",
@@ -150,6 +154,7 @@ export const Form = () => {
       });
   };
 
+  // MANEJADOR PARA CERRAR EL MODAL
   const closeModal = () => {
     setIsModalOpen(false);
   };
@@ -158,6 +163,7 @@ export const Form = () => {
     <div className={style.container}>
       <h2>Crear un videojuego</h2>
       <form onSubmit={handleSubmit} className={style.form}>
+        {/* CAMPOS DEL FORMULARIO */}
         <div>
           <label>Nombre: </label>
           <input
@@ -230,7 +236,7 @@ export const Form = () => {
         <div>
           <label>Género:</label>
           <select onChange={handleSelect} name="genres">
-          <option value=""></option>
+            <option value=""></option>
             {genres.map((genre, index) => (
               <option key={index} value={genre.name}>
                 {genre.name}
@@ -257,9 +263,15 @@ export const Form = () => {
           />
           <div>{errors.description && <span>{errors.description}</span>}</div>
         </div>
+
+        {/* BOTÓN DE ENVÍO */}
+        {isFormValid() && (
         <button type="submit" className={style.submit}>
           Create
         </button>
+      )}
+
+        {/* MENSAJE DE ERROR GLOBAL Y MODAL */}
         {errors.form && <span>{errors.form}</span>}
         {isModalOpen && (
           <Modal message={modalMessage} onClose={closeModal} />

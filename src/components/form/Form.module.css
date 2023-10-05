@@ -3,7 +3,7 @@
   justify-self: center;
   align-self: center;
   margin-top: 210px;
-  width: 650px;
+  width: 550px;
   height: auto;
   border-radius: 20px;
   background-color: rgb(32, 33, 52);
@@ -52,7 +52,7 @@
   height: 100px;
   border-radius: 10px;
   justify-self: right;
-  padding-left: 10px;
+  padding-left: 10px;margin-bottom: 30px;
 }
 
 .container button {
