@@ -5,7 +5,7 @@
   top: 140px;
   left: 0;
   right: 0;
-  grid-template-columns: 0.7fr 1.8fr 2.5fr 1.5fr;
+  grid-template-columns: 0.3fr 1.8fr 2.5fr 1.5fr;
   background-color: rgb(15, 15, 15);
   position: fixed;
   z-index: 999;
@@ -13,6 +13,7 @@
 
 .container a {
   align-self: center;
+  justify-self: center;
 }
 
 .buttons {

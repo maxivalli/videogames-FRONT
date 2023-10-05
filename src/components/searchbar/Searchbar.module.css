@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 2fr 1fr;
   justify-self: center;
+  margin-left: 10px;
 }
 
 .search {
