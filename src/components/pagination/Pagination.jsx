@@ -23,6 +23,9 @@ export const Pagination = ({
         >
           prev
         </button>
+        <div className={style.current}>
+        <p>{currentPage}</p>
+        </div>
         {/* Botón "next" para ir a la página siguiente */}
         <button
           onClick={() => pagination(currentPage + 1)}

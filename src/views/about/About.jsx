@@ -11,28 +11,26 @@ export const About = () => {
       </div>
       <div className={style.container}>
         <div>
-          <h2>Sobre la aplicación...</h2>
+          <h2>About the SPA</h2>
         </div>
         <div className={style.description}>
           <p>
-            Esta es una SPA que utiliza las tecnologías: React, Redux, Node,
-            Express y Sequelize.
+            This is a Single Page Application (SPA) that uses the following
+            technologies: React, Redux, Node, Express, and Sequelize.
             <br />
-            Fue hecha con la finalidad de poner en práctica recursos básicos de
-            estilos y diseño (UX : UI)
+            It was created with the purpose of applying basic styling and design
+            (UX: UI) resources, reinforcing and connecting the concepts learned
+            during the course, and acquiring best practices.
             <br />
-            Afirmar y conectar los conceptos aprendidos en la carrera y aprender
-            mejores prácticas.
+            Additionally, it serves as a means to learn and practice the GIT
+            workflow.
             <br />
-            Aprender y practicar el workflow de GIT.
             <br />
-            <br/>
-            La idea de este proyecto fue construir una aplicación web a partir de
-            la API rawg en la que se pueda:
+            The idea behind this project was to build a web application using
+            the rawg API that allows users to:
             <br />
-            Buscar videojuegos. Visualizar la información de los videojuegos.
-            <br />
-            Filtrarlos. Ordenarlos. Crear nuevos videojuegos.
+            Search for videogames. View information about videogames. Filter and
+            sort videogames. Create new videogames.
           </p>
         </div>
       </div>

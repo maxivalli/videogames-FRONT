@@ -162,7 +162,7 @@ export const Form = () => {
 
   return (
     <div className={style.container}>
-      <h2>Crear un videojuego</h2>
+      <h2>Create a videogame</h2>
       <form onSubmit={handleSubmit} className={style.form}>
         {/* CAMPO PARA INGRESAR EL NOMBRE */}
         <div>
