@@ -5,7 +5,7 @@
   top: 140px;
   left: 0;
   right: 0;
-  grid-template-columns: 0.3fr 1.8fr 2.5fr 1.5fr;
+  grid-template-columns: 0.6fr 1.8fr 2.5fr 1.5fr;
   background-color: rgb(15, 15, 15);
   position: fixed;
   z-index: 999;
@@ -13,13 +13,12 @@
 
 .container a {
   align-self: center;
-  justify-self: center;
+  justify-self: left;
 }
 
 .buttons {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  justify-content: left;
   align-content: center;
 }
 
@@ -39,7 +38,7 @@
 }
 
 .create {
-  justify-self: left;
+  justify-self: right;
   margin-left: 40px;
   background-color: rgba(15, 15, 15, 0.3);
   border: 2px solid rgb(174, 255, 0);

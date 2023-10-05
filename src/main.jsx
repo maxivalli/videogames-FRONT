@@ -15,9 +15,7 @@ const root = createRoot(rootElement);
 root.render(
   // Usamos el componente Provider de Redux para proporcionar el estado de la tienda a la aplicación
   <Provider store={store}>
-    {/* Utilizamos HashRouter para habilitar el enrutamiento basado en hash */}
     <HashRouter>
-      {/* Renderizamos el componente principal de la aplicación, que probablemente contiene rutas */}
       <App />
     </HashRouter>
   </Provider>
