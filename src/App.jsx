@@ -7,6 +7,7 @@ import { Create } from "./views/create/Create"; // Importamos el componente Crea
 import { Landing } from "./views/landin/Landing"; // Importamos el componente Landing
 import { Detail } from "./views/datail/Detail"; // Importamos el componente Detail
 import { About } from "./views/about/About"; // Importamos el componente About
+import ScrollToTop from "./functions/ScrollToTop"
 import "./App.css"; // Importamos estilos CSS
 
 // Configuramos la URL base para las solicitudes HTTP con Axios
@@ -16,6 +17,7 @@ axios.defaults.baseURL = 'https://videogames-server-production.up.railway.app';
 function App() {
   return (
     <>
+      <ScrollToTop />
       {/* Definimos las rutas de la aplicación */}
       <Routes>
         {/* Ruta para la landing page */}

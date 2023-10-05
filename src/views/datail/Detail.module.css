@@ -23,7 +23,7 @@
 }
 
 .loading {
-  margin-top: 100px;
+  margin-top: 150px;
 }
 
 .name {
@@ -64,5 +64,9 @@
   .image {
     width: 350px;
     margin-top: 50px;
+  }
+
+  .loading {
+    margin-top: 300px;
   }
 }
