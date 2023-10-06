@@ -4,74 +4,66 @@ import { Pagination } from "../pagination/Pagination";
 import { useState, useEffect } from "react";
 import { getVideogames } from "../../redux/actions";
 import { Card } from "../card/Card";
-import Gif from "../../assets/gif.gif"
+import Gif from "../../assets/gif.gif";
 import style from "./Cards.module.css";
 import { useSelector, useDispatch } from "react-redux";
 
 export const Cards = () => {
-  // Obtenemos el objeto "dispatch" para despachar acciones Redux.
+  
   const dispatch = useDispatch();
-
-  // Utilizamos el selector para obtener el estado de "videogames" desde Redux.
   const allVideogames = useSelector((state) => state.videogames);
 
-  // Estado local para gestionar el tiempo de espera.
+ 
   const [hasTimedOut, setHasTimedOut] = useState(false);
-
-  // Estado local para gestionar la página actual de la paginación.
   const [currentPage, setCurrentPage] = useState(1);
-  const videogamesPerPage = 15;
+  const [hasLoadedVideogames, setHasLoadedVideogames] = useState(false);
 
-  // Calculamos los índices de los primeros y últimos juegos a mostrar en la página actual.
+  //PAGINADO
+
+  const videogamesPerPage = 15;
   const indexOfLastVideogame = currentPage * videogamesPerPage;
   const indexOfFirstVideogame = indexOfLastVideogame - videogamesPerPage;
-
-  // Extraemos los juegos a mostrar en la página actual utilizando "slice".
   const currentVideogames = allVideogames.slice(
     indexOfFirstVideogame,
     indexOfLastVideogame
   );
 
-  // Función para cambiar la página actual.
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
-  // Efecto secundario para obtener los datos de los videojuegos al cargar el componente.
-useEffect(() => {
-  // Verifica si ya tienes datos en el estado antes de hacer la solicitud de nuevo.
-  if (!allVideogames || allVideogames.length === 0) {
-    dispatch(getVideogames()); // Despachamos la acción para obtener los datos.
-  }
-}, [dispatch, allVideogames]); // Agrega allVideogames como dependencia.
+  // CARGA VIDEOJUEGOS
 
+  useEffect(() => {
+    if (!hasLoadedVideogames) {
+      dispatch(getVideogames());
+      setHasLoadedVideogames(true);
+    }
+  }, [dispatch, hasLoadedVideogames]);
 
-  // Efecto secundario para gestionar el tiempo de espera si no se obtienen datos.
+  //
+
   useEffect(() => {
     const timer = setTimeout(() => {
       if (allVideogames.length === 0) {
-        setHasTimedOut(true); // Establecemos "hasTimedOut" en true si no se obtienen datos en 10 segundos.
+        setHasTimedOut(true);
       }
-    }, 10000); // Esperamos 10 segundos antes de considerarlo un tiempo de espera.
+    }, 10000);
 
-    // Limpiamos el temporizador si el componente se desmonta antes de que se cumpla el tiempo.
     return () => clearTimeout(timer);
   }, [allVideogames]);
 
-  // Renderizamos diferentes elementos según el estado de los datos.
   if (!allVideogames || allVideogames.length === 0) {
     if (hasTimedOut) {
-      return <h2>No se pudieron obtener datos</h2>; // Se muestra si ha habido un tiempo de espera.
+      return <h2>No se pudieron obtener datos</h2>;
     } else {
-      return <img src={Gif} className={style.gif}></img>; // Se muestra durante la carga de datos.
+      return <img src={Gif} className={style.gif}></img>;
     }
   }
 
-  // Renderizamos la lista de tarjetas de videojuegos y la paginación.
   return (
     <>
       <div className={style.container}>
-        {/* Componente de paginación */}
         <Pagination
           videogamesPerPage={videogamesPerPage}
           allVideogames={allVideogames.length}
@@ -79,7 +71,6 @@ useEffect(() => {
           pagination={pagination}
         />
 
-        {/* Mapeamos y mostramos tarjetas de videojuegos */}
         {currentVideogames.map((videogame) => (
           <Card
             key={videogame.id}
