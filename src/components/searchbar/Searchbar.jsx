@@ -27,6 +27,8 @@ export const Searchbar = () => {
       // Si hay un valor en el campo, se busca por nombre
       dispatch(getVideogamesByName(name));
     }
+
+    setName('');
   };
 
   // Maneja la pulsación de la tecla Enter en el campo de búsqueda
