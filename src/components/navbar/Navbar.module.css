@@ -55,7 +55,7 @@
 
 .buttons .logout {
   background-color: rgba(15, 15, 15, 0.3);
-  border: 2px solid rgb(255, 255, 47);
+  border: 2px solid orange;
   color: aliceblue;
   box-shadow: 1px 1px 25px rgb(0, 214, 247);
   text-shadow: 1px 1px 10px white;
@@ -63,7 +63,7 @@
 }
 
 .buttons .logout:hover {
-  background-color: rgba(15, 15, 15, 0.3);
+  background-color: rgba(255, 0, 166, 0.3);
 }
 
 @media (max-width: 1280px) {

@@ -6,7 +6,7 @@
 
 .container button {
     background-color: rgb(15, 15, 15);
-    border: 2px solid rgb(255, 255, 47);
+    border: 2px solid orange;
     box-shadow: 1px 1px 10px orange;
     font-size: 20px;
     margin-left: 5px;

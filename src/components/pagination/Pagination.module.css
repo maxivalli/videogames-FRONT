@@ -25,7 +25,7 @@
 .buttons {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 50px;
+  gap: 40px;
 }
 
 .container button {
