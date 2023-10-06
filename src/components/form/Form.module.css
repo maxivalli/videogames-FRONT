@@ -72,6 +72,12 @@
   width: 80px;
 }
 
+@media (max-width: 1280px) {
+  .container {
+    margin-top: 330px;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     width: 350px;

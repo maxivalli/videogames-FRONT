@@ -57,6 +57,12 @@
   overflow: hidden;
 }
 
+@media (max-width: 1280px) {
+  .container {
+    margin-top: 100px;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     margin-top: 100px;

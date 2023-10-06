@@ -1,22 +1,19 @@
-// Importamos las bibliotecas y componentes necesarios.
 import React from "react";
 import { Pagination } from "../pagination/Pagination";
 import { useState, useEffect } from "react";
-import { getVideogames } from "../../redux/actions";
+import { getVideogames, setHasLoadedVideogames } from "../../redux/actions";
 import { Card } from "../card/Card";
 import Gif from "../../assets/gif.gif";
 import style from "./Cards.module.css";
 import { useSelector, useDispatch } from "react-redux";
 
 export const Cards = () => {
-  
   const dispatch = useDispatch();
   const allVideogames = useSelector((state) => state.videogames);
+  const hasLoadedVideogames = useSelector((state) => state.hasLoadedVideogames);
 
- 
   const [hasTimedOut, setHasTimedOut] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [hasLoadedVideogames, setHasLoadedVideogames] = useState(false);
 
   //PAGINADO
 
@@ -37,7 +34,7 @@ export const Cards = () => {
   useEffect(() => {
     if (!hasLoadedVideogames) {
       dispatch(getVideogames());
-      setHasLoadedVideogames(true);
+      dispatch(setHasLoadedVideogames(true)); 
     }
   }, [dispatch, hasLoadedVideogames]);
 

@@ -13,82 +13,51 @@ export const Filter = () => {
   const dispatch = useDispatch();
   const genres = useSelector((state) => state.genres);
 
-  // Obtener los valores iniciales de los filtros del localStorage
-  const initialSelectedGenre = localStorage.getItem("selectedGenre") || "All";
-  const initialSelectedSource = localStorage.getItem("selectedSource") || "All";
-  const initialSelectedAlphabeticalOrder =
-    localStorage.getItem("selectedAlphabeticalOrder") || "Random";
-  const initialSelectedRatingOrder =
-    localStorage.getItem("selectedRatingOrder") || "Random";
+  const [selectedSortAlphabetically, setSelectedSortAlphabetically] = useState("Random");
+  const [selectedGenresFilter, setSelectedGenresFilter] = useState("All");
+  const [selectedSortByRating, setSelectedSortByRating] = useState("Random");
+  const [selectedCreatedFilter, setSelectedCreatedFilter] = useState("All");
 
-  // Estados locales para los filtros
-  const [selectedGenre, setSelectedGenre] = useState(initialSelectedGenre);
-  const [selectedSource, setSelectedSource] = useState(initialSelectedSource);
-  const [selectedAlphabeticalOrder, setSelectedAlphabeticalOrder] = useState(
-    initialSelectedAlphabeticalOrder
-  );
-  const [selectedRatingOrder, setSelectedRatingOrder] = useState(
-    initialSelectedRatingOrder
-  );
-
-  // Actualizar los valores de los filtros en el localStorage cuando cambien
-  useEffect(() => {
-    localStorage.setItem("selectedGenre", selectedGenre);
-  }, [selectedGenre]);
-
-  useEffect(() => {
-    localStorage.setItem("selectedSource", selectedSource);
-  }, [selectedSource]);
-
-  useEffect(() => {
-    localStorage.setItem(
-      "selectedAlphabeticalOrder",
-      selectedAlphabeticalOrder
-    );
-  }, [selectedAlphabeticalOrder]);
-
-  useEffect(() => {
-    localStorage.setItem("selectedRatingOrder", selectedRatingOrder);
-  }, [selectedRatingOrder]);
-
-  useEffect(() => {
+useEffect(() => {
     dispatch(getGenres());
   }, [dispatch]);
 
-  //
 
   const handleGenresFilter = (event) => {
-    setSelectedGenre(event.target.value);
-    dispatch(filterVideogamesByGenre(event.target.value));
+    const selectedValue = event.target.value;
+    setSelectedGenresFilter(selectedValue);
+    dispatch(filterVideogamesByGenre(selectedValue));
   };
 
   const handleCreatedFilter = (event) => {
-    setSelectedSource(event.target.value);
-    dispatch(filterVideogamesBySource(event.target.value));
+    const selectedValue = event.target.value;
+    setSelectedCreatedFilter(selectedValue);
+    dispatch(filterVideogamesBySource(selectedValue));
   };
 
   const handleSortAlphabetically = (event) => {
-    setSelectedAlphabeticalOrder(event.target.value);
-    dispatch(sortVideogamesAlphabetically(event.target.value));
+    const selectedValue = event.target.value;
+    setSelectedSortAlphabetically(selectedValue);
+    dispatch(sortVideogamesAlphabetically(selectedValue));
   };
 
   const handleSortByRating = (event) => {
-    setSelectedRatingOrder(event.target.value);
-    dispatch(sortVideogamesByRating(event.target.value));
+    const selecteValue = event.target.value;
+    setSelectedSortByRating(selecteValue);
+    dispatch(sortVideogamesByRating(selecteValue));
   };
 
   //
 
   const handleClearFilters = () => {
-    setSelectedGenre("All");
-    setSelectedSource("All");
-    setSelectedAlphabeticalOrder("Random");
-    setSelectedRatingOrder("Random");
-
     dispatch(filterVideogamesByGenre("All"));
+    setSelectedGenresFilter("All")
     dispatch(filterVideogamesBySource("All"));
+    setSelectedCreatedFilter("All")
     dispatch(sortVideogamesAlphabetically("Random"));
+    setSelectedSortAlphabetically("Random")
     dispatch(sortVideogamesByRating("Random"));
+    setSelectedSortByRating("Random")
   };
 
   return (
@@ -97,25 +66,26 @@ export const Filter = () => {
         <button onClick={handleClearFilters}>X</button>
         <select
           onChange={(event) => handleSortAlphabetically(event)}
-          name="Orden"
-          value={selectedAlphabeticalOrder}
+          name="order"
+          value={selectedSortAlphabetically}
         >
           <option value="Random">Order</option>
-          <option value="A">A-Z</option>
-          <option value="Z">Z-A</option>
+          <option value="A">A to Z</option>
+          <option value="Z">Z to A</option>
         </select>
         <select
           onChange={(event) => handleSortByRating(event)}
-          value={selectedRatingOrder}
+          name="rating"
+          value={selectedSortByRating}
         >
           <option value="Random">Rating</option>
-          <option value="max">Descendente</option>
-          <option value="min">Ascendente</option>
+          <option value="max">High to low</option>
+          <option value="min">Low to high</option>
         </select>
         <select
           onChange={(event) => handleGenresFilter(event)}
           name="genres"
-          value={selectedGenre}
+          value={selectedGenresFilter}
         >
           <option value="All">Genre</option>
           {genres.map((genre, index) => (
@@ -126,7 +96,8 @@ export const Filter = () => {
         </select>
         <select
           onChange={(event) => handleCreatedFilter(event)}
-          value={selectedSource}
+          name="created"
+          value={selectedCreatedFilter}
         >
           <option value="All">Origin</option>
           <option value="API">API</option>

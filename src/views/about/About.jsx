@@ -1,11 +1,9 @@
 import React from "react";
-import { Navbar } from "../../components/navbar/Navbar";
 import style from "./About.module.css";
 
 export const About = () => {
   return (
     <>
-      <Navbar></Navbar>
       <div className={style.header}>
         <h1>About</h1>
       </div>

@@ -1,5 +1,6 @@
 import {
   GET_VIDEOGAMES,
+  SET_HAS_LOADED_VIDEOGAMES,
   GET_VIDEOGAME,
   CLEAR_VIDEOGAME,
   GET_VIDEOGAMES_BY_NAME,
@@ -9,47 +10,47 @@ import {
   FILTER_BY_SOURCE,
   SORT_ALPHABETICALLY,
   SORT_BY_RATING,
-} from "./actions"; // Importamos las constantes de las acciones definidas
+} from "./actions";
 
 const initialState = {
-  videogames: [], // Almacena la lista de videojuegos
-  allVideogames: [], // Almacena todos los videojuegos sin filtrar
-  detail: [], // Almacena detalles de un videojuego
-  genres: [], // Almacena la lista de géneros de videojuegos
+  videogames: [],
+  allVideogames: [],
+  detail: [],
+  genres: [],
+  hasLoadedVideogames: false,
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_VIDEOGAMES:
-      // Actualizamos el estado con la lista de videojuegos y la lista completa de videojuegos
       return {
         ...state,
         videogames: action.payload,
         allVideogames: action.payload,
       };
 
+    case SET_HAS_LOADED_VIDEOGAMES:
+      return {
+        ...state,
+        hasLoadedVideogames: action.payload,
+      };
+
     case GET_VIDEOGAME:
-      // Actualizamos el estado con los detalles de un videojuego
       return { ...state, detail: action.payload };
 
     case CLEAR_VIDEOGAME:
-      //Limpia el estado con los detalles del videogame
       return { ...state, detail: null };
 
     case GET_VIDEOGAMES_BY_NAME:
-      // Actualizamos el estado con la lista de videojuegos filtrada por nombre
       return { ...state, videogames: action.payload };
 
     case GET_GENRES:
-      // Actualizamos el estado con la lista de géneros de videojuegos
       return { ...state, genres: action.payload };
 
     case POST_VIDEOGAME:
-      // No se realiza ninguna actualización de estado para la acción de creación de videojuegos
       return { ...state };
 
     case FILTER_BY_GENRE:
-      // Filtramos la lista de videojuegos por género
       const allVideogames = state.allVideogames;
       const filteredVideogames =
         action.payload === "All"
@@ -60,7 +61,6 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, videogames: filteredVideogames };
 
     case FILTER_BY_SOURCE:
-      // Filtramos la lista de videojuegos por fuente (creados o no creados)
       const createdFilter =
         action.payload === "created"
           ? state.allVideogames.filter((videogame) => videogame.created)
@@ -72,7 +72,6 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case SORT_ALPHABETICALLY:
-      // Ordenamos la lista de videojuegos alfabéticamente (ascendente o descendente)
       let sortedAlphabetically;
       if (action.payload === "A") {
         sortedAlphabetically = state.videogames.slice().sort((a, b) => {
@@ -94,7 +93,6 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case SORT_BY_RATING:
-      // Ordenamos la lista de videojuegos por rating (máximo o mínimo)
       const allVideogamesCopy = [...state.videogames];
       const sortedByRating =
         action.payload === "max"
@@ -107,7 +105,6 @@ const rootReducer = (state = initialState, action) => {
       };
 
     default:
-      // Devolvemos el estado sin cambios si no coincide con ninguna acción
       return state;
   }
 };
