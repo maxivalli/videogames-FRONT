@@ -210,12 +210,16 @@ export const Form = () => {
             <option value="Xbox One">Xbox One</option>
             <option value="Xbox Series S/X">Xbox Series S/X</option>
           </select>
+          
           {form.platforms.length > 0 && (
             <div className={style.selectedContainer}>
               <ul>
                 <li>{form.platforms.map((platform) => platform + ", ")}</li>
               </ul>
-              <button onClick={() => clearSelection('platforms')} className={style.clearButton}>
+              <button
+                onClick={() => clearSelection("platforms")}
+                className={style.clearButton}
+              >
                 <>x</>
               </button>
             </div>
@@ -260,7 +264,10 @@ export const Form = () => {
               <ul>
                 <li>{form.genres.map((genre) => genre + ", ")}</li>
               </ul>
-              <button onClick={() => clearSelection('genres')} className={style.clearButton}>
+              <button
+                onClick={() => clearSelection("genres")}
+                className={style.clearButton}
+              >
                 <>x</>
               </button>
             </div>
