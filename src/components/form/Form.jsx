@@ -75,6 +75,14 @@ export const Form = () => {
     }
   };
 
+  //PARA LIMPIAR LOS SELECT
+  const clearSelection = (property) => {
+    setForm({
+      ...form,
+      [property]: [],
+    });
+  };
+
   //COMPRUEBA SI TODOS LOS CAMPOS ESTAN COMPLETOS Y SIN ERRORES
   const isFormValid = () => {
     return (
@@ -207,6 +215,9 @@ export const Form = () => {
               <ul>
                 <li>{form.platforms.map((platform) => platform + ", ")}</li>
               </ul>
+              <button onClick={() => clearSelection('platforms')} className={style.clearButton}>
+                <>x</>
+              </button>
             </div>
           )}
           {errors.platforms && <div>{errors.platforms}</div>}
@@ -249,6 +260,9 @@ export const Form = () => {
               <ul>
                 <li>{form.genres.map((genre) => genre + ", ")}</li>
               </ul>
+              <button onClick={() => clearSelection('genres')} className={style.clearButton}>
+                <>x</>
+              </button>
             </div>
           )}
           <div>{errors.genres && <span>{errors.genres}</span>}</div>
