@@ -16,9 +16,20 @@
 }
 
 .message p {
+    color: aliceblue;
     font-size: 24px;
 }
 
 .container .message button {
     justify-self: center;
+    border: 2px solid rgb(255, 27, 145);
+    background-color: rgb(15,15,15);
+    color: rgb(0,215,255);
+    box-shadow: 1px 1px 15px rgb(255, 27, 145);
+    text-shadow: 1px 1px 15px rgb(0,215,255);
+}
+
+.container .message button:hover {
+    width: 80px;
+    border-radius: 25px;
 }

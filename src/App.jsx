@@ -23,7 +23,7 @@ function App() {
       {(location.pathname === "/home" ||
         location.pathname === "/create" ||
         location.pathname === "/about" ||
-        location.pathname.match(/^\/detail\/\d+$/)) && <Navbar />}
+        location.pathname.match(/^\/detail\/[\w-]+$/)) && <Navbar />}
 
       <Routes>
         <Route path="/" element={<Landing />} />
