@@ -25,9 +25,9 @@
 .buttons button {
   background-color: rgba(138, 43, 226, 0.3);
   border: 2px solid rgb(255, 27, 145);
-  color: rgb(0, 214, 247);
+  color: rgb(0,215,255);
   box-shadow: 1px 1px 25px blueviolet;
-  text-shadow: 1px 1px 25px aqua;
+  text-shadow: 1px 1px 25px rgb(0,215,255);
   justify-self: left;
 }
 

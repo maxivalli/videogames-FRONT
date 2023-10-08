@@ -24,9 +24,9 @@
   align-self: center;
   border-radius: 20px;
   border: 2px solid rgb(255, 27, 145);
-  color: aqua;
+  color: rgb(0,215,255);
   box-shadow: 1px 1px 5px blueviolet;
-  text-shadow: 1px 1px 25px aqua;
+  text-shadow: 1px 1px 25px rgb(0,215,255);
 }
 
 .container p {
