@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { getGenres, postVideogame } from "../../redux/actions";
-import { validate } from "./validate";
+import { validate } from "../../functions/validate";
 import { Modal } from "../modal/Modal";
 import style from "./Form.module.css";
 

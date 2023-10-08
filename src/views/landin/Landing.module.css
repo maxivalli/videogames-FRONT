@@ -19,7 +19,7 @@
   border: 4px solid rgb(255, 27, 145);
   color: rgb(0, 214, 247);
   box-shadow: 1px 1px 25px blueviolet;
-  text-shadow: 1px 1px 25px rgb(0, 214, 247);
+  text-shadow: 1px 1px 25px aqua;
   transition: 300ms;
   animation: pulse 1s infinite;
 }

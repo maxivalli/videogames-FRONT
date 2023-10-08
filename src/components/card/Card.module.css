@@ -8,8 +8,8 @@
   color: aliceblue;
   border-radius: 20px;
   align-content: center;
-  border: 3px solid rgb(0, 214, 247);
-  box-shadow: 1px 1px 15px rgb(0, 214, 247);
+  border: 3px solid aqua;
+  box-shadow: 1px 1px 15px aqua;
   transition: 200ms;
 }
 
@@ -69,9 +69,9 @@ h4 {
   font-size: 12px;
   background-color: rgba(138, 43, 226, 0.3);
   border: 2px solid rgb(255, 27, 145);
-  color: rgb(0, 214, 247);
+  color: aqua;
   box-shadow: 1px 1px 5px blueviolet;
-  text-shadow: 1px 1px 25px rgb(0, 214, 247);
+  text-shadow: 1px 1px 25px aqua;
   transition: 200ms;
 }
 
