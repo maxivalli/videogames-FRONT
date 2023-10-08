@@ -3,8 +3,8 @@ a {
 }
 
 .home {
-    border: 2px solid fuchsia;
-    box-shadow: 1px 1px 15px fuchsia;
+    border: 2px solid rgb(255, 27, 145);
+    box-shadow: 1px 1px 15px rgb(255, 27, 145);
     background-color: rgb(15,15,15);
     color: rgb(0,215,255);
     text-shadow: 1px 1px 15px rgb(0,215,255);

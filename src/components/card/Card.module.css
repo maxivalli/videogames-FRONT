@@ -8,7 +8,7 @@
   color: aliceblue;
   border-radius: 20px;
   align-content: center;
-  border: 3px solid aqua;
+  border: 3px solid rgb(0,215,255);
   box-shadow: 1px 1px 15px rgb(0,215,255);
   transition: 200ms;
 }
