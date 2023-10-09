@@ -19,7 +19,7 @@ root.render(
     domain={domain}
     clientId={clientID}
     authorizationParams={{
-      redirect_uri: "https://maxivalli.github.io/videogames-FRONT/#/home",
+      redirect_uri: "https://maxivalli.github.io/videogames-FRONT/#/home"
     }}
   >
     <Provider store={store}>
@@ -29,3 +29,6 @@ root.render(
     </Provider>
   </Auth0Provider>
 );
+
+// http://localhost:5173/videogames-FRONT/
+// https://maxivalli.github.io/videogames-FRONT/#/home

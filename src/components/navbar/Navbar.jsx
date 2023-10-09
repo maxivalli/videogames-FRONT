@@ -41,3 +41,6 @@ export const Navbar = () => {
     </>
   );
 };
+
+// http://localhost:5173/videogames-FRONT/
+// https://maxivalli.github.io/videogames-FRONT/
