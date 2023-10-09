@@ -5,12 +5,8 @@
 .container img {
   justify-self: center;
 }
-.container a {
-  justify-self: center;
-  text-decoration: none;
-}
 
-.container a button {
+.container button {
   width: 65px;
   height: 65px;
   font-size: 36px;
@@ -36,7 +32,7 @@
   }
 }
 
-.container a button:hover {
+.container button:hover {
   width: 140px;
   border-radius: 35px;
   animation: none;

@@ -6,7 +6,7 @@ import style from "./Home.module.css";
 export const Home = () => {
   return (
     <>
-      <Header />
+      {<Header />}
       <div className={style.container}>
         <Cards />
       </div>

@@ -1,0 +1,37 @@
+.container {
+    display: grid;
+    position: fixed;
+    top: 25px;
+    right: 40px;
+    width: 200px;
+    grid-template-columns: 3fr 1fr;
+    z-index: 9999;
+}
+.container img {
+    width: 50px;
+    height: 50px;
+    align-self: center;
+    border-radius: 50%;
+    border: 2px solid aliceblue;
+    box-shadow: 1px 1px 15px aliceblue;
+}
+
+.container h2 {
+    font-size: 14px;
+}
+.container p {
+    color: aliceblue;
+    font-size: 10px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 60px;
+        grid-template-columns: 1fr;
+        right: 20px;
+    }
+
+    .container h2 {
+        display: none;
+    }
+}

@@ -19,7 +19,7 @@ root.render(
     domain={domain}
     clientId={clientID}
     authorizationParams={{
-      redirect_uri: "maxivalli.github.io/videogames-FRONT/#/home",
+      redirect_uri: "https://github.com/maxivalli/videogames-FRONT/#/home",
     }}
   >
     <Provider store={store}>

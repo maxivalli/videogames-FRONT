@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 import { Navbar } from "./components/navbar/Navbar";
 import { Home } from "./views/home/Home";
 import { Create } from "./views/create/Create";
@@ -18,27 +19,28 @@ function App() {
   const location = useLocation();
 
   return (
-    <>
-      <ScrollToTop />
-      {(location.pathname === "/home" ||
-        location.pathname === "/create" ||
-        location.pathname === "/about" ||
-        location.pathname.match(/^\/detail\/[\w-]+$/)) && <Navbar />}
+    
+      <>
+        <ScrollToTop />
+        {(location.pathname === "/home" ||
+          location.pathname === "/create" ||
+          location.pathname === "/about" ||
+          location.pathname.match(/^\/detail\/[\w-]+$/)) && <Navbar />}
 
-      <Routes>
-        <Route path="/" element={<Landing />} />
+        <Routes>
+          <Route path="/" element= {<Landing />} />
+          
+          <Route path="/home" element={<Home />} />
 
-        <Route path="/home" element={<Home />} />
+          <Route path="/create" element={<Create />} />
 
-        <Route path="/create" element={<Create />} />
+          <Route path="/detail/:id" element={<Detail />} />
 
-        <Route path="/detail/:id" element={<Detail />} />
+          <Route path="/about" element={<About />} />
 
-        <Route path="/about" element={<About />} />
-
-        <Route path="*" element={<Error />} />
-      </Routes>
-    </>
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </>
   );
 }
 
