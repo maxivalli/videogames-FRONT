@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
-import { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Navbar } from "./components/navbar/Navbar";
 import { Home } from "./views/home/Home";
@@ -19,7 +18,6 @@ axios.defaults.baseURL = "https://videogames-server-production.up.railway.app";
 function App() {
   const location = useLocation();
   const { isAuthenticated } = useAuth0();
-  console.log(isAuthenticated);
 
   return (
     <>
