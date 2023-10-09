@@ -15,9 +15,3 @@
     height: auto;
     justify-self: center;
 }
-
-@media (max-width: 1280px) {
-    .container img {
-        width: 200px;
-    }
-}
