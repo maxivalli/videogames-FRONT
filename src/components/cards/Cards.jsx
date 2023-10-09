@@ -12,8 +12,8 @@ export const Cards = () => {
   const allVideogames = useSelector((state) => state.videogames);
   const hasLoadedVideogames = useSelector((state) => state.hasLoadedVideogames);
 
-  const [hasTimedOut, setHasTimedOut] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [hasTimedOut, setHasTimedOut] = useState(false); // Para el estado de la funcion que espera 10" 
+  const [currentPage, setCurrentPage] = useState(1);  
 
   //PAGINADO
 
@@ -34,7 +34,7 @@ export const Cards = () => {
   useEffect(() => {
     if (!hasLoadedVideogames) {
       dispatch(getVideogames());
-      dispatch(setHasLoadedVideogames(true)); 
+      dispatch(setHasLoadedVideogames(true)); // Para setear un estado cuando se carguen los videogames
     }
   }, [dispatch, hasLoadedVideogames]);
 
@@ -50,6 +50,7 @@ export const Cards = () => {
     return () => clearTimeout(timer);
   }, [allVideogames]);
 
+  // Renderiza un mensaje si no se pudieron cargar los videogames
   if (!allVideogames || allVideogames.length === 0) {
     if (hasTimedOut) {
       return <h2>No se pudieron obtener datos</h2>;

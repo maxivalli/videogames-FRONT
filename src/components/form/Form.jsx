@@ -7,11 +7,11 @@ import { Modal } from "../modal/Modal";
 import style from "./Form.module.css";
 
 export const Form = () => {
-  // DISPATCH Y SELECTOR
+  
   const dispatch = useDispatch();
   const genres = useSelector((state) => state.genres);
 
-  // ESTADOS DEL FORMULARIO Y ERRORES
+  // Para setear el estado del form y los errores
   const [form, setForm] = useState({
     name: "",
     image: "",
@@ -33,28 +33,28 @@ export const Form = () => {
     form: "",
   });
 
-  // ESTADO DEL MODAL
+  // Para setear el estado del modal cuando un juego se ha creado con exito
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
 
-  // OBTENER GÉNEROS AL MONTAR EL COMPONENTE
+
   useEffect(() => {
     dispatch(getGenres());
   }, [dispatch]);
 
-  // MANEJADOR DE CAMBIOS EN LOS CAMPOS DEL FORMULARIO
+ 
   const changeHandler = (event) => {
     const property = event.target.name;
     const value = event.target.value;
 
-    // VALIDAR EL FORMULARIO Y ESTABLECER LOS ERRORES
+   
     validate({ ...form, [property]: value }, setErrors);
 
-    // ACTUALIZAR EL ESTADO DEL FORMULARIO CON LOS NUEVOS VALORES
+   
     setForm({ ...form, [property]: value });
   };
 
-  // MANEJADOR DE SELECCIÓN DE OPCIONES (PLATAFORMAS Y GÉNEROS)
+  
   const handleSelect = (event) => {
     const { name, value } = event.target;
 
@@ -75,7 +75,7 @@ export const Form = () => {
     }
   };
 
-  //PARA LIMPIAR LOS SELECT
+ 
   const clearSelection = (property) => {
     setForm({
       ...form,
@@ -83,7 +83,7 @@ export const Form = () => {
     });
   };
 
-  //COMPRUEBA SI TODOS LOS CAMPOS ESTAN COMPLETOS Y SIN ERRORES
+
   const isFormValid = () => {
     return (
       Object.values(errors).every((value) => value === "") &&
@@ -96,17 +96,17 @@ export const Form = () => {
     );
   };
 
-  // MANEJADOR DE ENVÍO DEL FORMULARIO
+  
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // REALIZAR UNA SOLICITUD GET PARA OBTENER TODOS LOS VIDEOJUEGOS
+   
     axios
       .get(`/videogames`)
       .then((response) => {
         const allVideogames = response.data;
 
-        // FILTRAR LOS VIDEOJUEGOS POR NOMBRE PARA VERIFICAR DUPLICADOS
+        
         const filteredVideogames = allVideogames.filter(
           (videogame) =>
             videogame.name.toLowerCase() === form.name.toLowerCase()
@@ -115,7 +115,7 @@ export const Form = () => {
         const newErrors = { ...errors };
 
         if (filteredVideogames.length > 0) {
-          // EL VIDEOJUEGO YA EXISTE
+        
           newErrors.name = "The name of the videogame already exists";
         }
 
@@ -128,16 +128,16 @@ export const Form = () => {
         if (form.rating === "") newErrors.rating = "Select a rating";
         if (form.genres.length === 0) newErrors.genres = "Select a genre";
 
-        // ESTABLECER LOS ERRORES ACTUALIZADOS EN EL ESTADO
+       
         setErrors(newErrors);
 
-        // COMPROBAR SI NO HAY ERRORES
+        
         const hasNoErrors = Object.values(newErrors).every(
           (value) => value === ""
         );
 
         if (hasNoErrors) {
-          // CONTINUAR CON EL ENVÍO DEL FORMULARIO SI NO HAY ERRORES
+          
           dispatch(postVideogame(form));
           setModalMessage("Videogame successfully created!");
           setIsModalOpen(true);
@@ -155,7 +155,7 @@ export const Form = () => {
         }
       })
       .catch((error) => {
-        console.log(error);
+        
         setErrors({
           ...errors,
           form: "There was an error while creating the videogame. Please try again.",
@@ -163,7 +163,7 @@ export const Form = () => {
       });
   };
 
-  // MANEJADOR PARA CERRAR EL MODAL
+ 
   const closeModal = () => {
     setIsModalOpen(false);
   };
@@ -172,7 +172,7 @@ export const Form = () => {
     <div className={style.container}>
       <h2>Create a videogame</h2>
       <form onSubmit={handleSubmit} className={style.form}>
-        {/* CAMPO PARA INGRESAR EL NOMBRE */}
+        
         <div>
           <label>Name: </label>
           <input
@@ -183,7 +183,7 @@ export const Form = () => {
           />
           {errors.name && <div>{errors.name}</div>}
         </div>
-        {/* CAMPO PARA INGRESAR LA IMAGEN */}
+        
         <div>
           <label>Image: </label>
           <input
@@ -194,7 +194,7 @@ export const Form = () => {
           />
           {errors.image && <div>{errors.image}</div>}
         </div>
-        {/* CAMPO PARA INGRESAR LAS PLATAFORMAS */}
+       
         <div>
           <label>Platform:</label>
           <select
@@ -226,7 +226,7 @@ export const Form = () => {
           )}
           {errors.platforms && <div>{errors.platforms}</div>}
         </div>
-        {/* CAMPO PARA INGRESAR LA FECHA */}
+        
         <div>
           <label>Relased:</label>
           <input
@@ -237,7 +237,7 @@ export const Form = () => {
           />
           <div>{errors.released && <span>{errors.released}</span>}</div>
         </div>
-        {/* CAMPO PARA INGRESAR EL RATING */}
+        
         <div>
           <label>Rating:</label>
           <input
@@ -248,7 +248,7 @@ export const Form = () => {
           />
           <div>{errors.rating && <span>{errors.rating}</span>}</div>
         </div>
-        {/* CAMPO PARA INGRESAR EL GENERO */}
+        
         <div>
           <label>Genre:</label>
           <select onChange={handleSelect} name="genres">
@@ -274,7 +274,7 @@ export const Form = () => {
           )}
           <div>{errors.genres && <span>{errors.genres}</span>}</div>
         </div>
-        {/* CAMPO PARA INGRESAR LA DESCRIPCION */}
+        
         <div>
           <label>Description:</label>
           <textarea
@@ -285,13 +285,13 @@ export const Form = () => {
           />
           <div>{errors.description && <span>{errors.description}</span>}</div>
         </div>
-        {/* BOTÓN DE ENVÍO */}
+        
         {isFormValid() && (
           <button type="submit" className={style.submit}>
             Create
           </button>
         )}
-        {/* MENSAJE DE ERROR GLOBAL Y MODAL */}
+        
         {errors.form && <span>{errors.form}</span>}
         {isModalOpen && <Modal message={modalMessage} onClose={closeModal} />}
       </form>

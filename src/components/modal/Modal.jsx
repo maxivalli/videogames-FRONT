@@ -8,7 +8,7 @@ export const Modal = ({ message, onClose }) => {
   const dispatch = useDispatch();
 
   const handleButtonClick = () => {
-    dispatch(getVideogames()); 
+    dispatch(getVideogames()); // Recarga los videogames para que se muestren los nuevos creados
     onClose(); 
   };
 

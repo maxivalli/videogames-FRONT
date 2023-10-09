@@ -19,7 +19,6 @@ export const validate = (form, setErrors) => {
 
   if (form.platforms.length > 0) newErrors.platforms = "";
 
-  // Comprobar si la fecha seleccionada es una fecha pasada
   const currentDate = new Date();
   const selectedDate = new Date(form.released);
 
@@ -46,13 +45,7 @@ export const validate = (form, setErrors) => {
   } else {
     newErrors.description = "";
   }
-  
-  
-  
-  
-  
 
-  // Llama a setErrors para actualizar los errores en el componente
   setErrors(newErrors);
 
   return newErrors;

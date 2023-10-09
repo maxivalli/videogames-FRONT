@@ -13,6 +13,7 @@ export const Filter = () => {
   const dispatch = useDispatch();
   const genres = useSelector((state) => state.genres);
 
+  // Para setear el estado de los selectores 
   const [selectedSortAlphabetically, setSelectedSortAlphabetically] = useState("Random");
   const [selectedGenresFilter, setSelectedGenresFilter] = useState("All");
   const [selectedSortByRating, setSelectedSortByRating] = useState("Random");
@@ -47,7 +48,7 @@ useEffect(() => {
     dispatch(sortVideogamesByRating(selecteValue));
   };
 
-  //
+  // Para limpiar el estado de los selectores
 
   const handleClearFilters = () => {
     dispatch(filterVideogamesByGenre("All"));

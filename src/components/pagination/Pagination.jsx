@@ -6,7 +6,7 @@ export const Pagination = ({
   currentPage,
   pagination,
 }) => {
-  // Calcula la cantidad total de páginas necesarias para la paginación
+ 
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(allVideogames / videogamesPerPage); i++) {
@@ -16,22 +16,22 @@ export const Pagination = ({
   return (
     <div className={style.container}>
       <div className={style.buttons}>
-        {/* Botón "prev" para ir a la página anterior */}
+        
         <button
           onClick={() => pagination(currentPage - 1)}
-          disabled={currentPage === 1} // Deshabilita si estamos en la primera página
+          disabled={currentPage === 1} 
         >
           prev
         </button>
         <div className={style.current}>
         <p>{currentPage}</p>
         </div>
-        {/* Botón "next" para ir a la página siguiente */}
+       
         <button
           onClick={() => pagination(currentPage + 1)}
           disabled={
             currentPage === Math.ceil(allVideogames / videogamesPerPage)
-          } // Deshabilita si estamos en la última página
+          } 
         >
           next
         </button>

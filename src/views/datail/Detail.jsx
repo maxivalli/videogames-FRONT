@@ -10,18 +10,20 @@ export const Detail = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    dispatch(getVideogame(id));
+    dispatch(getVideogame(id)); // Obtiene el videogame por ID
     return () => {
-      dispatch(clearVideogameDetail());
+      dispatch(clearVideogameDetail()); // Limpia el estado
     };
   }, [dispatch, id]);
 
   const videogame = useSelector((state) => state.detail);
 
-  if (!videogame || videogame.length === 0) {
+  // Renderiza un mensaje mientras respone la API
+  
+  if (!videogame || videogame.length === 0) { 
     return (
       <>
-        <h2 className={style.loading}>Loading...</h2>;
+        <h2 className={style.loading}>Loading...</h2>; 
       </>
     );
   }

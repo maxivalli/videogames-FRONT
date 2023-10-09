@@ -13,6 +13,7 @@ export const FILTER_BY_SOURCE = "FILTER_BY_SOURCE";
 export const SORT_ALPHABETICALLY = "SORT_ALPABETICALLY";
 export const SORT_BY_RATING = "SORT_BY_RATINH";
 
+// Para obtener los videogames
 export const getVideogames = () => {
   return async function (dispatch) {
     const videogames = (await axios.get(URL)).data;
@@ -20,10 +21,12 @@ export const getVideogames = () => {
   };
 };
 
+// Para setear el estado si sean abtenido los videogames
 export const setHasLoadedVideogames = (value) => {
   return { type: SET_HAS_LOADED_VIDEOGAMES, payload: value };
 };
 
+// Para obtener un videogame por ID
 export const getVideogame = (id) => {
   return async function (dispatch) {
     try {
@@ -35,10 +38,12 @@ export const getVideogame = (id) => {
   };
 };
 
+// Para limpiar el Detail 
 export const clearVideogameDetail = () => {
   return {type: CLEAR_VIDEOGAME};
 };
 
+// Para obtener un videogames por nombre
 export const getVideogamesByName = (name) => {
   return async function (dispatch) {
     const videogame = (await axios.get(`${URL}?name=${name}`)).data;
@@ -46,6 +51,7 @@ export const getVideogamesByName = (name) => {
   };
 };
 
+// Para obtener los generos
 export const getGenres = () => {
   return async function (dispatch) {
     const genres = (await axios.get("/genres")).data;
@@ -53,6 +59,7 @@ export const getGenres = () => {
   };
 };
 
+// Para crear un videogame
 export const postVideogame = (payload) => {
   return async function () {
     const videogame = await axios.post(URL, payload);
@@ -60,18 +67,22 @@ export const postVideogame = (payload) => {
   };
 };
 
+// Para filtrar por genero
 export const filterVideogamesByGenre = (payload) => {
   return { type: FILTER_BY_GENRE, payload };
 };
 
+// Para ordenar alfabeticamente
 export const sortVideogamesAlphabetically = (payload) => {
   return { type: SORT_ALPHABETICALLY, payload };
 };
 
+// Para ordenar por rating
 export const sortVideogamesByRating = (payload) => {
   return { type: SORT_BY_RATING, payload };
 };
 
+// Para filtrar por origen 
 export const filterVideogamesBySource = (payload) => {
   return { type: FILTER_BY_SOURCE, payload };
 };
