@@ -30,5 +30,5 @@ root.render(
   </Auth0Provider>
 );
 
-// http://localhost:5173/videogames-FRONT/
+// http://localhost:5173/videogames-FRONT/#/home
 // https://maxivalli.github.io/videogames-FRONT/#/home
