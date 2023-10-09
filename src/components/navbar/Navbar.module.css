@@ -11,11 +11,6 @@
   z-index: 999;
 }
 
-.container a {
-  align-self: center;
-  justify-self: left;
-}
-
 .buttons {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -59,6 +54,7 @@
   color: aliceblue;
   text-shadow: 1px 1px 10px white;
   box-shadow: 1px 1px 25px rgb(255, 145, 0);
+  justify-self: left;
 }
 
 .buttons .logout:hover {
@@ -76,6 +72,10 @@
   }
 
   .container a {
+    justify-self: center;
+  }
+
+  .buttons .logout {
     justify-self: center;
   }
 
