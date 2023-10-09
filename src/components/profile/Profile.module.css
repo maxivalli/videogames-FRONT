@@ -3,13 +3,14 @@
     position: fixed;
     top: 25px;
     right: 40px;
-    width: 200px;
-    grid-template-columns: 3fr 1fr;
+    width: 350px;
+    grid-template-columns: 4fr 1fr;
     z-index: 9999;
 }
 .container img {
     width: 50px;
     height: 50px;
+    justify-self: center;
     align-self: center;
     border-radius: 50%;
     border: 2px solid aliceblue;
@@ -18,6 +19,8 @@
 
 .container h2 {
     font-size: 14px;
+    justify-self: right;
+    text-shadow: 1px 1px 15px rgb(0,215,255);
 }
 .container p {
     color: aliceblue;
