@@ -1,8 +1,11 @@
 .container {
   display: grid;
-  grid-template-columns: 2.5fr 1fr;
+  grid-template-columns: 1.3fr 2.5fr 1.3fr;
   justify-self: center;
-  margin-left: 10px;
+}
+
+.container .link  {
+  justify-self: left;
 }
 
 .search {
@@ -17,6 +20,22 @@
 
 .search:hover {
   background-color: rgba(138, 43, 226, 0.3);
+  border-radius: 25px;
+  width: 80px;
+}
+
+.create {
+  justify-self: left;
+  margin: 0;
+  background-color: rgba(15, 15, 15, 0.3);
+  border: 2px solid rgb(174, 255, 0);
+  color: aliceblue;
+  box-shadow: 1px 1px 10px rgb(17, 255, 0);
+  text-shadow: 1px 1px 25px aliceblue;
+}
+
+.create:hover {
+  background-color: rgba(15, 15, 15, 0.3);
   border-radius: 25px;
   width: 80px;
 }

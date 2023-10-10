@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getVideogames, getVideogamesByName } from "../../redux/actions";
@@ -42,6 +43,9 @@ export const Searchbar = () => {
   return (
     <>
       <div className={style.container}>
+        <NavLink to="/create" className={style.link}>
+          <button className={style.create}>Create</button>
+        </NavLink>
         <input
           type="text"
           value={name}

@@ -5,7 +5,7 @@
   top: 100px;
   left: 0;
   right: 0;
-  grid-template-columns: 0.6fr 1.8fr 2.5fr 1.5fr;
+  grid-template-columns: 1.8fr 2.5fr 1.5fr;
   background-color: rgb(15, 15, 15);
   position: fixed;
   z-index: 999;
@@ -32,23 +32,6 @@
   width: 80px;
 }
 
-.create {
-  justify-self: right;
-  margin-left: 40px;
-  margin-right: 10px;
-  background-color: rgba(15, 15, 15, 0.3);
-  border: 2px solid rgb(174, 255, 0);
-  color: aliceblue;
-  box-shadow: 1px 1px 10px rgb(17, 255, 0);
-  text-shadow: 1px 1px 25px aliceblue;
-}
-
-.create:hover {
-  background-color: rgba(15, 15, 15, 0.3);
-  border-radius: 25px;
-  width: 80px;
-}
-
 .buttons .logout {
   background-color: rgba(15, 15, 15, 0.3);
   border: 2px solid orange;
@@ -65,10 +48,10 @@
 @media (max-width: 1280px) {
   .container {
     width: 100%;
-    height: 220px;
+    height: 165px;
     margin-top: 0px;
     grid-template-columns: 1fr;
-    grid-template-rows: 55px 55px 55px 55px;
+    grid-template-rows: 55px 55px 55px;
     margin-right: 0;
   }
 

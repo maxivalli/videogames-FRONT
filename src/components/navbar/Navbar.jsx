@@ -10,16 +10,14 @@ export const Navbar = () => {
   return (
     <>
       <div className={style.container}>
-        <NavLink to="/create">
-          <button className={style.create}>Create</button>
-        </NavLink>
+        
         <Searchbar />
         <Filter />
         <div className={style.buttons}>
-          <NavLink to="/home">
+          <NavLink to="/home" className={style.link}>
             <button>Home</button>
           </NavLink>
-          <NavLink to="/about">
+          <NavLink to="/about" className={style.link}>
             <button>About</button>
           </NavLink>
           
