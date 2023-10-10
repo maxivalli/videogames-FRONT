@@ -44,7 +44,7 @@ export const Searchbar = () => {
     <>
       <div className={style.container}>
         <NavLink to="/create" className={style.link}>
-          <button className={style.create}>Create</button>
+          <button className={style.create}>✎</button>
         </NavLink>
         <input
           type="text"
@@ -57,7 +57,7 @@ export const Searchbar = () => {
         ></input>
 
         <button className={style.search} onClick={handleSearch}>
-          Search
+          ⚲
         </button>
       </div>
     </>

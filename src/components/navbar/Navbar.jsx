@@ -15,10 +15,10 @@ export const Navbar = () => {
         <Filter />
         <div className={style.buttons}>
           <NavLink to="/home" className={style.link}>
-            <button>Home</button>
+            <button>⌂</button>
           </NavLink>
           <NavLink to="/about" className={style.link}>
-            <button>About</button>
+            <button>ℹ︎</button>
           </NavLink>
           
             <button
@@ -31,7 +31,7 @@ export const Navbar = () => {
               }
               className={style.logout}
             >
-              Logout
+              ⎋
             </button>
           
         </div>

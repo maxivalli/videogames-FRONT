@@ -18,7 +18,7 @@
 }
 
 .buttons button {
-  background-color: rgba(138, 43, 226, 0.3);
+  background-color: rgb(15,15,15);
   border: 2px solid rgb(255, 27, 145);
   color: rgb(0,215,255);
   box-shadow: 1px 1px 25px blueviolet;
@@ -28,21 +28,20 @@
 
 .buttons button:hover {
   background-color: rgba(138, 43, 226, 0.3);
-  border-radius: 25px;
-  width: 80px;
 }
 
 .buttons .logout {
   background-color: rgba(15, 15, 15, 0.3);
   border: 2px solid orange;
+  font-size: 22px;
   color: aliceblue;
   text-shadow: 1px 1px 10px white;
-  box-shadow: 1px 1px 25px rgb(255, 145, 0);
+  box-shadow: 1px 1px 25px orange;
   justify-self: left;
 }
 
 .buttons .logout:hover {
-  background-color: rgba(255, 0, 166, 0.3);
+  background-color: rgb(255, 166, 0,0.3);
 }
 
 @media (max-width: 1280px) {
@@ -61,9 +60,5 @@
 
   .buttons .logout {
     justify-self: center;
-  }
-
-  .create {
-    margin: 0;
   }
 }

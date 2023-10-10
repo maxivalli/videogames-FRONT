@@ -29,8 +29,8 @@
     animation: spin 2s infinite;
 }
 
-.container .reloadClicked:hover {
-    background-color: rgb(45, 25, 125); 
+.container .reload:hover {
+    background-color: rgba(174, 255, 0,0.2); 
 }
 
 @keyframes spin {
@@ -57,7 +57,7 @@
 }
 
 .container .reset:hover {
-    background-color: rgb(45, 25, 125); 
+    background-color: rgb(255, 166, 0,0.3); 
 }
 
 @media (max-width: 768px) {

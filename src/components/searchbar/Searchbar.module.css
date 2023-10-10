@@ -5,13 +5,15 @@
 }
 
 .container .link  {
-  justify-self: left;
+  justify-self: right;
+  margin-right: 10px;
 }
 
 .search {
   justify-self: left;
   margin-left: 10px;
-  background-color: rgba(138, 43, 226, 0.3);
+  font-size: 22px;
+  background-color: rgb(15,15,15);
   border: 2px solid rgb(255, 27, 145);
   color: rgb(0,215,255);
   box-shadow: 1px 1px 25px blueviolet;
@@ -20,13 +22,11 @@
 
 .search:hover {
   background-color: rgba(138, 43, 226, 0.3);
-  border-radius: 25px;
-  width: 80px;
 }
 
 .create {
-  justify-self: left;
   margin: 0;
+  font-size: 20px;
   background-color: rgba(15, 15, 15, 0.3);
   border: 2px solid rgb(174, 255, 0);
   color: aliceblue;
@@ -35,7 +35,5 @@
 }
 
 .create:hover {
-  background-color: rgba(15, 15, 15, 0.3);
-  border-radius: 25px;
-  width: 80px;
+  background-color: rgba(174, 255, 0,0.2);
 }
