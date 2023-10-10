@@ -41,12 +41,6 @@
     }
 }
 
-/* .container .reload:hover {
-    width: 52px;
-    border-radius: 25px;
-    background-color: rgb(15,15,15); 
-} */
-
 .container .reset {
     background-color: rgb(15, 15, 15);
     border: 2px solid orange;
@@ -67,5 +61,9 @@
 @media (max-width: 768px) {
     .container {
         margin: 0;
+    }
+
+    .container select {
+        font-size: 9px;
     }
 }
