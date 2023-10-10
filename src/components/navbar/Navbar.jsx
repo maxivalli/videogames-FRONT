@@ -27,7 +27,7 @@ export const Navbar = () => {
               onClick={() =>
                 logout({
                   logoutParams: {
-                    returnTo: "http://localhost:5173/videogames-FRONT/",
+                    returnTo: "https://maxivalli.github.io/videogames-FRONT/",
                   },
                 })
               }
