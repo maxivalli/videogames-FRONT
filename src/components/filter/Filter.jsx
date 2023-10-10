@@ -102,6 +102,7 @@ useEffect(() => {
           onChange={(event) => handleGenresFilter(event)}
           name="genres"
           value={selectedGenresFilter}
+          className={style.select}
         >
           <option value="All">Genre</option>
           {genres.map((genre, index) => (
@@ -114,6 +115,7 @@ useEffect(() => {
           onChange={(event) => handleCreatedFilter(event)}
           name="created"
           value={selectedCreatedFilter}
+          className={style.select}
         >
           <option value="All">Origin</option>
           <option value="API">API</option>

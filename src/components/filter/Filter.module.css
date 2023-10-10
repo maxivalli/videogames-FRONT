@@ -1,75 +1,79 @@
 .container {
-    display: grid;
-    grid-template-columns: 0.6fr 0.6fr 1fr 1fr 1fr 1fr;
-    justify-content: space-around;
-    margin-right: 15px;
+  display: grid;
+  grid-template-columns: 0.6fr 0.6fr 1fr 1fr 1fr 1fr;
+  justify-content: space-around;
+  margin-right: 15px;
+}
+
+.container .select {
+  box-shadow: 1px 1px 15px red;
+  border: 2px solid orange;
 }
 
 .container .reload {
-    background-color: rgb(15, 15, 15);
-    border: 2px solid rgb(174, 255, 0);
-    box-shadow: 1px 1px 10px rgb(174, 255, 0);
-    font-size: 19px;
-    margin-left: 5px;
-    width: 42px;
-    height: 42px;
-    text-shadow: 1px 1px 10px aliceblue; 
-    
+  background-color: rgb(15, 15, 15);
+  border: 2px solid rgb(174, 255, 0);
+  box-shadow: 1px 1px 10px rgb(174, 255, 0);
+  font-size: 19px;
+  margin-left: 5px;
+  width: 42px;
+  height: 42px;
+  text-shadow: 1px 1px 10px aliceblue;
 }
 
 .container .reloadClicked {
-    background-color: rgb(15, 15, 15);
-    border: 2px solid rgb(174, 255, 0);
-    box-shadow: 1px 1px 10px rgb(174, 255, 0);
-    font-size: 19px;
-    margin-left: 5px;
-    width: 42px;
-    height: 42px;
-    text-shadow: 1px 1px 10px aliceblue; 
-    animation: spin 2s infinite;
+  background-color: rgb(15, 15, 15);
+  border: 2px solid rgb(174, 255, 0);
+  box-shadow: 1px 1px 10px rgb(174, 255, 0);
+  font-size: 19px;
+  margin-left: 5px;
+  width: 42px;
+  height: 42px;
+  text-shadow: 1px 1px 10px aliceblue;
+  animation: spin 2s infinite;
 }
 
 .container .reload:hover {
-    background-color: rgba(174, 255, 0,0.2); 
+  background-color: rgba(174, 255, 0, 0.2);
 }
 
 @keyframes spin {
-    0% {
-        transform: rotate(0deg); 
-    }
-    50% {
-        transform: rotate(180deg);
-    }
-    100% {
-        transform: rotate(360deg); 
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .container .reset {
-    background-color: rgb(15, 15, 15);
-    border: 2px solid orange;
-    box-shadow: 1px 1px 10px orange;
-    font-size: 21px;
-    margin-left: 5px;
-    width: 42px;
-    height: 42px;
-    text-shadow: 1px 1px 10px aliceblue; 
+  background-color: rgb(15, 15, 15);
+  border: 2px solid blueviolet;
+  box-shadow: 1px 1px 10px blueviolet;
+  font-size: 21px;
+  margin-left: 5px;
+  width: 42px;
+  height: 42px;
+  text-shadow: 1px 1px 10px aliceblue;
 }
 
 .container .reset:hover {
-    background-color: rgb(255, 166, 0,0.3); 
+  background-color: rgba(111, 0, 255, 0.558);
 }
 
 @media (max-width: 768px) {
-    .container {
-        margin: 0;
-    }
+  .container {
+    margin: 0;
+  }
 
-    .container select {
-        font-size: 9px;
-    }
+  .container select {
+    font-size: 9px;
+  }
 
-    .container .reset {
-        font-size: 19px;
-    }
+  .container .reset {
+    font-size: 19px;
+  }
 }
