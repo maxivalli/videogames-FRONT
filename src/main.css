@@ -76,6 +76,7 @@ input {
   background-color: rgba(138, 43, 226, 0.3);
   border: 2px solid rgb(255, 27, 145);
   color: aliceblue;
+  width: 180px;
   height: 40px;
   font-size: 20px;
   border-radius: 25px;
