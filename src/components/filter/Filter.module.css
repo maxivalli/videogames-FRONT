@@ -29,6 +29,10 @@
     animation: spin 2s infinite;
 }
 
+.container .reloadClicked:hover {
+    background-color: rgb(45, 25, 125); 
+}
+
 @keyframes spin {
     0% {
         transform: rotate(0deg); 
@@ -53,9 +57,7 @@
 }
 
 .container .reset:hover {
-    width: 52px;
-    border-radius: 25px;
-    background-color: rgb(15,15,15); 
+    background-color: rgb(45, 25, 125); 
 }
 
 @media (max-width: 768px) {
@@ -65,5 +67,9 @@
 
     .container select {
         font-size: 9px;
+    }
+
+    .container .reset {
+        font-size: 19px;
     }
 }
