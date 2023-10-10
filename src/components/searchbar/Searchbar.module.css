@@ -11,13 +11,14 @@
 
 .search {
   justify-self: left;
+  transform: rotate(-25deg);
   margin-left: 10px;
   font-size: 22px;
   background-color: rgb(15,15,15);
   border: 2px solid rgb(255, 27, 145);
-  color: rgb(0,215,255);
+  color: aliceblue;
   box-shadow: 1px 1px 25px blueviolet;
-  text-shadow: 1px 1px 25px rgb(0,215,255);
+  text-shadow: 1px 1px 25px aliceblue;
 }
 
 .search:hover {
@@ -29,9 +30,9 @@
   font-size: 20px;
   background-color: rgba(15, 15, 15, 0.3);
   border: 2px solid rgb(174, 255, 0);
-  color: aliceblue;
+  color: rgb(0,215,255);
   box-shadow: 1px 1px 10px rgb(17, 255, 0);
-  text-shadow: 1px 1px 25px aliceblue;
+  text-shadow: 1px 1px 25px rgb(0,215,255);
 }
 
 .create:hover {
