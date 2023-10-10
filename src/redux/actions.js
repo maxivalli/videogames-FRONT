@@ -86,3 +86,4 @@ export const sortVideogamesByRating = (payload) => {
 export const filterVideogamesBySource = (payload) => {
   return { type: FILTER_BY_SOURCE, payload };
 };
+

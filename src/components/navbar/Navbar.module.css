@@ -35,10 +35,11 @@
 .create {
   justify-self: right;
   margin-left: 40px;
+  margin-right: 10px;
   background-color: rgba(15, 15, 15, 0.3);
   border: 2px solid rgb(174, 255, 0);
   color: aliceblue;
-  box-shadow: 1px 1px 15px rgb(17, 255, 0);
+  box-shadow: 1px 1px 10px rgb(17, 255, 0);
   text-shadow: 1px 1px 25px aliceblue;
 }
 

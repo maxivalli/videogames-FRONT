@@ -1,24 +1,67 @@
 .container {
     display: grid;
-    grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 0.6fr 0.6fr 1fr 1fr 1fr 1fr;
     justify-content: space-around;
+    margin-right: 15px;
 }
 
-.container button {
+.container .reload {
+    background-color: rgb(15, 15, 15);
+    border: 2px solid rgb(174, 255, 0);
+    box-shadow: 1px 1px 10px rgb(174, 255, 0);
+    font-size: 19px;
+    margin-left: 5px;
+    width: 42px;
+    height: 42px;
+    text-shadow: 1px 1px 10px aliceblue; 
+    
+}
+
+.container .reloadClicked {
+    background-color: rgb(15, 15, 15);
+    border: 2px solid rgb(174, 255, 0);
+    box-shadow: 1px 1px 10px rgb(174, 255, 0);
+    font-size: 19px;
+    margin-left: 5px;
+    width: 42px;
+    height: 42px;
+    text-shadow: 1px 1px 10px aliceblue; 
+    animation: spin 2s infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg); 
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg); 
+    }
+}
+
+/* .container .reload:hover {
+    width: 52px;
+    border-radius: 25px;
+    background-color: rgb(15,15,15); 
+} */
+
+.container .reset {
     background-color: rgb(15, 15, 15);
     border: 2px solid orange;
     box-shadow: 1px 1px 10px orange;
-    font-size: 20px;
+    font-size: 21px;
     margin-left: 5px;
-    width: 38px;
-    height: 38px;
-    text-shadow: 1px 1px 10px aliceblue;
+    width: 42px;
+    height: 42px;
+    text-shadow: 1px 1px 10px aliceblue; 
 }
 
-.container button:hover {
-    width: 48px;
+.container .reset:hover {
+    width: 52px;
     border-radius: 25px;
-    background-color: rgb(15,15,15);
+    background-color: rgb(15,15,15); 
 }
 
 @media (max-width: 768px) {

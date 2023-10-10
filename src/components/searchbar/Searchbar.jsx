@@ -1,50 +1,40 @@
-import React from 'react'
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { getVideogames, getVideogamesByName } from '../../redux/actions';
-import style from './Searchbar.module.css';
+import React from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { getVideogames, getVideogamesByName } from "../../redux/actions";
+import style from "./Searchbar.module.css";
 
 export const Searchbar = () => {
   const dispatch = useDispatch();
 
- 
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
 
- 
   const [isFocused, setIsFocused] = useState(false);
 
-  
   const handleChange = (event) => {
     setName(event.target.value);
   };
 
-  
   const handleSearch = () => {
     if (!name) {
-      
       dispatch(getVideogames());
     } else {
-      
       dispatch(getVideogamesByName(name));
     }
 
-    setName('');
+    setName("");
   };
 
- 
   const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
-      
+    if (event.key === "Enter") {
       handleSearch();
     }
   };
 
-  
   const handleFocus = () => {
     setIsFocused(true);
   };
 
-  
   const handleBlur = () => {
     setIsFocused(false);
   };
@@ -52,20 +42,20 @@ export const Searchbar = () => {
   return (
     <>
       <div className={style.container}>
-        
         <input
-          type='text'
+          type="text"
           value={name}
-          
-          placeholder={isFocused ? '' : 'Search'}
+          placeholder={isFocused ? "" : "Search"}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           onFocus={handleFocus}
           onBlur={handleBlur}
         ></input>
-       
-        <button className={style.search} onClick={handleSearch}>Search</button>
+
+        <button className={style.search} onClick={handleSearch}>
+          Search
+        </button>
       </div>
     </>
-  )
-}
+  );
+};

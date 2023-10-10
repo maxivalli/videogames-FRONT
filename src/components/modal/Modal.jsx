@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getVideogames } from "../../redux/actions";
 import style from "./Modal.module.css";
@@ -6,9 +7,11 @@ import style from "./Modal.module.css";
 export const Modal = ({ message, onClose }) => {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    dispatch(getVideogames()); // Recarga los videogames para que se muestren los nuevos creados
+    dispatch(getVideogames());
+    navigate("/home"); 
     onClose(); 
   };
 

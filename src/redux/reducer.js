@@ -42,7 +42,7 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, detail: null };
 
     case GET_VIDEOGAMES_BY_NAME:
-      return { ...state, videogames: action.payload };
+      return { ...state, videogames: action.payload, allVideogames: action.payload};
 
     case GET_GENRES:
       return { ...state, genres: action.payload };
@@ -51,20 +51,23 @@ const rootReducer = (state = initialState, action) => {
       return { ...state };
 
     case FILTER_BY_GENRE:
-      const allVideogames = state.allVideogames;
+      const allVideogames1 = state.allVideogames;
       const filteredVideogames =
         action.payload === "All"
-          ? allVideogames
-          : allVideogames.filter((videogame) =>
+          ? allVideogames1
+          : allVideogames1.filter((videogame) =>
               videogame.genres.includes(action.payload)
             );
-      return { ...state, videogames: filteredVideogames };
+      return { ...state, 
+        videogames: 
+        action.payload === "All" ? state.allVideogames : filteredVideogames };
 
     case FILTER_BY_SOURCE:
+      const allVideogames2 = state.allVideogames;
       const createdFilter =
         action.payload === "created"
-          ? state.allVideogames.filter((videogame) => videogame.created)
-          : state.allVideogames.filter((videogame) => !videogame.created);
+          ? allVideogames2.filter((videogame) => videogame.created)
+          : allVideogames2.filter((videogame) => !videogame.created);
       return {
         ...state,
         videogames:

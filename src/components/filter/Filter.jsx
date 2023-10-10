@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { 
+import {
+  getVideogames, 
   getGenres,
   filterVideogamesBySource,
   filterVideogamesByGenre,
@@ -12,6 +13,9 @@ import style from "./Filter.module.css";
 export const Filter = () => {
   const dispatch = useDispatch();
   const genres = useSelector((state) => state.genres);
+  const allVideogames = useSelector((state) => state.videogames);
+  const [reloadButtonStyle, setReloadButtonStyle] = useState(style.reload);
+
 
   // Para setear el estado de los selectores 
   const [selectedSortAlphabetically, setSelectedSortAlphabetically] = useState("Random");
@@ -21,6 +25,7 @@ export const Filter = () => {
 
 useEffect(() => {
     dispatch(getGenres());
+    
   }, [dispatch]);
 
 
@@ -43,9 +48,18 @@ useEffect(() => {
   };
 
   const handleSortByRating = (event) => {
-    const selecteValue = event.target.value;
-    setSelectedSortByRating(selecteValue);
-    dispatch(sortVideogamesByRating(selecteValue));
+    const selectedValue = event.target.value;
+    setSelectedSortByRating(selectedValue);
+    dispatch(sortVideogamesByRating(selectedValue));
+  };
+
+  const handleReload = () => {
+    dispatch(getVideogames());
+    
+    setReloadButtonStyle(style.reloadClicked);
+    setTimeout(() => {
+      setReloadButtonStyle(style.reload);
+    }, 3000);
   };
 
   // Para limpiar el estado de los selectores
@@ -64,7 +78,8 @@ useEffect(() => {
   return (
     <>
       <div className={style.container}>
-        <button onClick={handleClearFilters}>X</button>
+        <button className={reloadButtonStyle} onClick={handleReload}>♻︎</button>
+        <button className={style.reset} onClick={handleClearFilters}>✘</button>
         <select
           onChange={(event) => handleSortAlphabetically(event)}
           name="order"
