@@ -30,7 +30,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         
-        <Route path="/home" element={isAuthenticated && <Home />} />
+        <Route path="/home" element={isAuthenticated ? <Home /> : <Navigate to="/" />} />
 
         <Route path="/create" element={isAuthenticated ? <Create /> : <Navigate to="/" />} />
 
