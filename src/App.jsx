@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Routes, Route, useLocation, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Navbar } from "./components/navbar/Navbar";
 import { Home } from "./views/home/Home";
@@ -16,27 +16,22 @@ import "./App.css";
 axios.defaults.baseURL = "https://videogames-server-production.up.railway.app";
 
 function App() {
-  const location = useLocation();
   const { isAuthenticated } = useAuth0();
 
   return (
     <>
       <ScrollToTop />
-      {(location.pathname === "/home" ||
-        location.pathname === "/create" ||
-        location.pathname === "/about" ||
-        location.pathname.match(/^\/detail\/[\w-]+$/)) && <Navbar />}
 
       <Routes>
         <Route path="/" element={<Landing />} />
         
-        <Route path="/home" element={isAuthenticated ? <Home /> : <Navigate to="/" />} />
+        <Route path="/home" element={isAuthenticated && <><Home /> <Navbar/></>} />
 
-        <Route path="/create" element={isAuthenticated ? <Create /> : <Navigate to="/" />} />
+        <Route path="/create" element={isAuthenticated && <><Create /> <Navbar/></>} />
 
-        <Route path="/detail/:id" element={isAuthenticated ? <Detail /> : <Navigate to="/" />} />
+        <Route path="/detail/:id" element={isAuthenticated && <><Detail /> <Navbar/></>} />
 
-        <Route path="/about" element={isAuthenticated ? <About /> : <Navigate to="/" />} />
+        <Route path="/about" element={isAuthenticated && <><About /> <Navbar/></>} />
 
         <Route path="*" element={isAuthenticated ? <Error /> : <Navigate to="/" />} />
       </Routes>

@@ -95,8 +95,8 @@ useEffect(() => {
           value={selectedSortByRating}
         >
           <option value="Random">Rating</option>
-          <option value="max">High to low</option>
-          <option value="min">Low to high</option>
+          <option value="max">5 to 0</option>
+          <option value="min">0 to 5</option>
         </select>
         <select
           onChange={(event) => handleGenresFilter(event)}
