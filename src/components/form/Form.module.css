@@ -58,19 +58,19 @@
 }
 
 .submit {
-  background-color: rgba(15, 15, 15, 0.3);
+  width: 80px;
+  border-radius: 25px;
+  background-color: rgba(15, 15, 15);
   border: 2px solid rgb(174, 255, 0);
   color: aliceblue;
   box-shadow: 1px 1px 25px rgb(17, 255, 0);
-  text-shadow: 1px 1px 25px aliceblue;
+  text-shadow: 1px 1px 15px aliceblue;
   justify-self: center;
   margin-bottom: 20px;
 }
 
 .submit:hover {
-  background-color: rgba(15, 15, 15, 0.3);
-  border-radius: 25px;
-  width: 80px;
+  background-color: rgba(174, 255, 0, 0.2);
 }
 
 .clearButton {

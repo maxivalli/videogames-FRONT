@@ -55,15 +55,10 @@ button {
   font-family: 'Tilt Neon', cursive;
   font-size: 20px;
   padding-top: 5px;
-  background-color: #263b71;
   color: aliceblue;
   cursor: pointer;
   border: none;
   transition: 200ms;
-}
-
-button:hover {
-  background-color: #3f4d72;
 }
 
 button:active {

@@ -67,18 +67,14 @@ h4 {
   height: 30px;
   border-radius: 50%;
   font-size: 12px;
-  background-color: rgba(138, 43, 226, 0.3);
+  background-color: rgb(32, 33, 52);
   border: 2px solid rgb(255, 27, 145);
   color: rgb(0,215,255);
   box-shadow: 1px 1px 5px blueviolet;
-  text-shadow: 1px 1px 25px rgb(0,215,255);
+  text-shadow: 1px 1px 15px rgb(0,215,255);
   transition: 200ms;
 }
 
 .buttons button:hover {
-    width: 48px;
-    height: 28px;
-    border-radius: 20px;
-    box-shadow: 1px 1px 25px blueviolet;
     background-color: rgba(138, 43, 226, 0.3);
 }

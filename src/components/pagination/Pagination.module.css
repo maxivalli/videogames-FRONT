@@ -34,7 +34,7 @@
   border-radius: 50%;
   font-size: 14px;
   padding-top: 14px;
-  background-color: rgba(15, 15, 15, 0.7);
+  background-color: rgb(15, 15, 15);
   border: 2px solid rgb(255, 255, 47);
   color: aliceblue;
   box-shadow: 1px 1px 25px rgb(255, 145, 0);
@@ -42,9 +42,6 @@
 }
 
 .container button:hover {
-  width: 60px;
-  height: 35px;
-  padding-top: 7px;
   border-radius: 25px;
-  background-color: rgba(15, 15, 15, 0.3);
+  background-color: rgba(255, 166, 0, 0.7);
 }
