@@ -13,7 +13,6 @@ import style from "./Filter.module.css";
 export const Filter = () => {
   const dispatch = useDispatch();
   const genres = useSelector((state) => state.genres);
-  const allVideogames = useSelector((state) => state.videogames);
   const [reloadButtonStyle, setReloadButtonStyle] = useState(style.reload);
 
 

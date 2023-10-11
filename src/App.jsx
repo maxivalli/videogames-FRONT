@@ -5,7 +5,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Navbar } from "./components/navbar/Navbar";
 import { Home } from "./views/home/Home";
 import { Create } from "./views/create/Create";
-import { Landing } from "./views/landin/Landing";
+import { Landing } from "./views/landing/Landing";
 import { Detail } from "./views/datail/Detail";
 import { About } from "./views/about/About";
 import { Error } from "./views/error/Error";
